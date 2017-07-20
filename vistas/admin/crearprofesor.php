@@ -174,7 +174,7 @@
 
                     </ul>
                     <!--breadcrumbs end -->
-                    <h1 class="h1">noholis</h1>
+                    <h1 class="h1">Profesor</h1>
                 </div>
 
 
