@@ -90,7 +90,7 @@
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Mike Adams <i class="fa fa-angle-down"></i>
+                        Administrador<i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
@@ -547,10 +547,3 @@ $('#example').dataTable();
 
 </body>
 </html>
-<?php
-/**
- * Created by PhpStorm.
- * User: camilo
- * Date: 10/07/2017
- * Time: 10:33
- */

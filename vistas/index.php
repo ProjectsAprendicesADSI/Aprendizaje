@@ -1,3 +1,4 @@
+<?php  ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -47,7 +48,7 @@
                     </div>
                     <div class="panel-body">
                        <p>Ingrese los datos para acceder a su cuenta</p>
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php" method="post">
                             <div class="form-group">
                                     <label class="col-sm-10 ">Tipo de usuario</label>
                                     <div class="col-sm-12">

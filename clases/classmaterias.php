@@ -31,7 +31,7 @@ class classmaterias extends db_abstract_class
         $htmlSelect .= "<option value='nada' >Seleccione...</option>";
         if (count($arrmaterias) > 0) {
             foreach ($arrmaterias as $materia) {
-                $htmlSelect .= "<option value='".$materia->getidasignatura()."'>".$materia->getNombre()." "."</option>";
+                $htmlSelect .= "<option value='".$materia->getidasignatura()."'>".$materia->getNombre()."(".$materia->getidasignatura().")"." "."</option>";
             }
             $htmlSelect .= "</select>";
             return $htmlSelect;

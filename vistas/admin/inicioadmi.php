@@ -90,7 +90,7 @@
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Mike Adams <i class="fa fa-angle-down"></i>
+                        Administrador  <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
@@ -103,7 +103,7 @@
                             <a href="#"><i class="fa fa-envelope"></i> mensajes <span class="badge badge-danager" id="user-inbox">2</span></a>
                         </li>
                         <li>
-                            <a href="pages-login.html"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
                         </li>
                     </ul>
                 </li>

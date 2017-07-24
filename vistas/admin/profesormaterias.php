@@ -105,7 +105,7 @@
                             <a href="#"><i class="fa fa-envelope"></i> mensajes <span class="badge badge-danager" id="user-inbox">2</span></a>
                         </li>
                         <li>
-                            <a href="pages-login.html"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
                         </li>
                     </ul>
                 </li>
@@ -177,7 +177,8 @@
                 </div>
                 </div>
                     <div>
-                     <?php  echo classprofesor::ultimo(true ,"new-todo" ,"new-todo","form-control"); ?>
+                 <?php  echo classprofesor::ultimo(true ,"new-todo" ,"new-todo","form-control"); ?>
+
                         </div>
 
 
