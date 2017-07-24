@@ -1,0 +1,169 @@
+--CREATE datebase colegio;
+--use colegio;
+
+--CREATE TABLE IF NOT EXISTS `Profesor` (
+  --`idprofesor` INT NOT NULL AUTO_INCREMENT,
+  --`Tipodocumento` ENUM('cedula', 'tarjeta') NOT NULL,
+  --`documento` INT NOT NULL,
+  --`Nombre` VARCHAR(45) NOT NULL,
+  --`apellido` VARCHAR(45) NOT NULL,
+  --`foto` INT NOT NULL,
+  --`telefono` BIGINT NOT NULL,
+  --`telefono2` BIGINT NULL,
+  --`usuario` VARCHAR(45) NOT NULL,
+  --`contraseha` VARCHAR(45) NOT NULL,
+  --PRIMARY KEY (`idprofesor`),
+  --UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC))
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `cursos` (
+  --`idcursos` INT NOT NULL AUTO_INCREMENT,
+  --`nombre` VARCHAR(45) NOT NULL,
+  --`jornada` ENUM('manhana', 'tarde') NOT NULL,
+  --PRIMARY KEY (`idcursos`))
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `periodoacademico` (
+  --`idperiodoacademico` INT NOT NULL AUTO_INCREMENT,
+  --`fechainicio` DATE NULL,
+  --`fechafin` DATE NULL,
+  --`estado` ENUM('activo', 'terminado') NULL,
+  --PRIMARY KEY (`idperiodoacademico`))
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `Asigaturas` (
+  --`idAsigaturas` INT NOT NULL AUTO_INCREMENT,
+  --`nombre` VARCHAR(45) NOT NULL,
+  --`horas` TIME NOT NULL,
+  --PRIMARY KEY (`idAsigaturas`))
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `estudiente` (
+--  `idestudiante` INT NOT NULL AUTO_INCREMENT,
+--  `Tipodocumento` ENUM('cedula', 'tarjeta') NOT NULL,
+--`documento` INT NOT NULL,
+-- `Nombre` VARCHAR(45) NOT NULL,
+--  `apellido` VARCHAR(45) NOT NULL,
+--  `foto` INT NOT NULL,
+--  `telefono` BIGINT NOT NULL,
+--  `usuario` VARCHAR(45) NOT NULL,
+--  `contraseha` VARCHAR(45) NOT NULL,
+-- `edad` SMALLINT NOT NULL,
+-- `jornada` ENUM('manhana', 'tarde') NOT NULL,
+-- `curso` INT NOT NULL,
+-- PRIMARY KEY (`idestudiante`, `curso`),
+-- UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC),
+-- INDEX `fk_estudiente_cursos_idx` (`curso` ASC),
+-- UNIQUE INDEX `idestudiante_UNIQUE` (`idestudiante` ASC),
+-- CONSTRAINT `fk_estudiente_cursos`
+--   FOREIGN KEY (`curso`)
+--   REFERENCES `cursos` (`idcursos`)
+--   ON DELETE NO ACTION
+--   ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `observacionacademica` (
+--  `idobservacionacademica` INT NOT NULL,
+--  `observacion` TEXT NOT NULL,
+--  `fecha` DATE NOT NULL,
+--  `estudiente_idestudiante` INT NOT NULL,
+--  `estudiente_curso` INT NOT NULL,
+--  PRIMARY KEY (`idobservacionacademica`),
+--  INDEX `fk_observacionacademica_estudiente1_idx` (`estudiente_idestudiante` ASC, `estudiente_curso` ASC),
+--  CONSTRAINT `fk_observacionacademica_estudiente1`
+--    FOREIGN KEY (`estudiente_idestudiante` , `estudiente_curso`)
+--	REFERENCES `estudiente` (`idestudiante` , `curso`)
+--	ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `acudiente` (
+--  `idacudiente` INT NOT NULL AUTO_INCREMENT,
+--  `Tipodocumento` ENUM('cedula', 'tarjeta') NOT NULL,
+--  `documento` INT NOT NULL,
+--  `Nombre` VARCHAR(45) NOT NULL,
+--  `apellido` VARCHAR(45) NOT NULL,
+--  `foto` INT NOT NULL,
+--  `telefono` BIGINT NOT NULL,
+--  `telefono2` BIGINT NULL,
+--  `usuario` VARCHAR(45) NOT NULL,
+--  `contraseha` VARCHAR(45) NOT NULL,
+--  `parentesco` VARCHAR(45) NOT NULL,
+--  `estudiante` INT NOT NULL,
+--  PRIMARY KEY (`idacudiente`, `estudiante`),
+--  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC),
+--  INDEX `fk_acudiente_estudiente1_idx` (`estudiante` ASC),
+--  CONSTRAINT `fk_acudiente_estudiente1`
+--    FOREIGN KEY (`estudiante`)
+--    REFERENCES `estudiente` (`idestudiante`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `aula` (
+--  `idaula` INT NOT NULL AUTO_INCREMENT,
+--  `nomre` VARCHAR(45) NOT NULL,
+--  `capmaxima` INT NOT NULL,
+--  `capactual` INT NOT NULL,
+--`cursos_idcursos` INT NOT NULL,
+--  PRIMARY KEY (`idaula`, `cursos_idcursos`),
+--  INDEX `fk_aula_cursos1_idx` (`cursos_idcursos` ASC),
+--  CONSTRAINT `fk_aula_cursos1`
+--    FOREIGN KEY (`cursos_idcursos`)
+--    REFERENCES `cursos` (`idcursos`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `trabajos` (
+--  `idtrabajos` INT NOT NULL AUTO_INCREMENT,
+--  `trabajo` INT NOT NULL,
+--  `Asigaturas_idAsigaturas` INT NOT NULL,
+--  `nota` ENUM('APROBADO','NOAPROBADO') NOT NULL,
+--  PRIMARY KEY (`idtrabajos`, `Asigaturas_idAsigaturas`),
+--  INDEX `fk_trabajos_Asigaturas1_idx` (`Asigaturas_idAsigaturas` ASC),
+--  CONSTRAINT `fk_trabajos_Asigaturas1`
+--    FOREIGN KEY (`Asigaturas_idAsigaturas`)
+--    REFERENCES `Asigaturas` (`idAsigaturas`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `Profesor_Asigaturas` (
+--  `Profesor_idprofesor` INT NOT NULL,
+--  `Asigaturas_idAsigaturas` INT NOT NULL,
+-- PRIMARY KEY (`Profesor_idprofesor`, `Asigaturas_idAsigaturas`),
+--  INDEX `fk_Profesor_has_Asigaturas_Asigaturas1_idx` (`Asigaturas_idAsigaturas` ASC),
+--  INDEX `fk_Profesor_has_Asigaturas_Profesor1_idx` (`Profesor_idprofesor` ASC),
+--  CONSTRAINT `fk_Profesor_has_Asigaturas_Profesor1`
+--    FOREIGN KEY (`Profesor_idprofesor`)
+--    REFERENCES `Profesor` (`idprofesor`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION,
+--  CONSTRAINT `fk_Profesor_has_Asigaturas_Asigaturas1`
+--   FOREIGN KEY (`Asigaturas_idAsigaturas`)
+--    REFERENCES `Asigaturas` (`idAsigaturas`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+--CREATE TABLE IF NOT EXISTS `cursos_Asigaturas` (
+--  `cursos_idcursos` INT NOT NULL,
+--  `Asigaturas_idAsigaturas` INT NOT NULL,
+--  PRIMARY KEY (`cursos_idcursos`, `Asigaturas_idAsigaturas`),
+--  INDEX `fk_cursos_has_Asigaturas_Asigaturas1_idx` (`Asigaturas_idAsigaturas` ASC),
+--  INDEX `fk_cursos_has_Asigaturas_cursos1_idx` (`cursos_idcursos` ASC),
+--  CONSTRAINT `fk_cursos_has_Asigaturas_cursos1`
+--    FOREIGN KEY (`cursos_idcursos`)
+--    REFERENCES `cursos` (`idcursos`)
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION,
+--  CONSTRAINT `fk_cursos_has_Asigaturas_Asigaturas1`
+--    FOREIGN KEY (`Asigaturas_idAsigaturas`)
+--    REFERENCES `Asigaturas` (`idAsigaturas`)
+--   ON DELETE NO ACTION
+--    ON UPDATE NO ACTION)
+--ENGINE = InnoDB;
+
+
+C:\xampp\htdocs\ejerciciocolegio\usuarios\fotos\user.jpg

@@ -10,7 +10,7 @@ abstract class db_abstract_class {
 
     public $isConnected;
     protected $datab;
-    private $username = "root";
+    private $username = "camilo";
     private $password = "";
     private $host = "localhost";
     private $dbname = "colegio";
