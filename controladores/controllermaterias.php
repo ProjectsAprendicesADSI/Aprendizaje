@@ -31,11 +31,10 @@ class controllermaterias
         try {
             $arraymaterias = array();
             $arraymaterias['Nombre'] = $_POST['Nombre'];
-            $arraymaterias['Horas'] = $_POST['Horas'];
             $arraymaterias['Estado'] = $_POST['Estado'];
             $materia = new classmaterias($arraymaterias);
             $materia->insertar();
-            header('Location: ../vistas/admin/Materias.php?respuesta=correcto' );
+           header('Location: ../vistas/admin/Materias.php?respuesta=correcto' );
         } catch (Exception $e) {
            header("Location: ../vistas/admin/Materias.php?respuesta=error");
         }

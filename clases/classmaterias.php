@@ -7,7 +7,6 @@ class classmaterias extends db_abstract_class
 
     private $idAsignatura;
     private $Nombre;
-    private $Horas;
     private $Estado;
 
     public function __construct($Asignatura_data = array())
@@ -22,7 +21,6 @@ class classmaterias extends db_abstract_class
             $this->idAsignatura = "";
             $this->Nombre = "";
             $this->Estado = "";
-            $this->Horas ="";
         }
     }
 
@@ -51,7 +49,6 @@ class classmaterias extends db_abstract_class
             $getrow =$materias->getRow("SELECT * FROM asignarutras WHERE idAsigaturas =?", array($id));
             $materias->idAsignatura = $getrow['idAsigaturas'];
             $materias->Nombre = $getrow['nombre'];
-            $materias->Horas = $getrow['horas'];
             $materias->Estado = $getrow['Estado'];
 
             $materias->Disconnect();
@@ -71,7 +68,6 @@ class classmaterias extends db_abstract_class
             $materias = new classmaterias();
             $materias->idAsignatura = $valor['idAsigaturas'];
             $materias->Nombre = $valor['Nombre'];
-            $materias->Horas = $valor['Horas'];
             $materias->Estado = $valor['Estado'];
             array_push($arrAsignatura, $materias);
         }
@@ -86,9 +82,8 @@ class classmaterias extends db_abstract_class
 
     public  function insertar()
     {
-        $this->insertRow("INSERT INTO asigaturas VALUES (NULL, ?, ?, ?)", array(
+        $this->insertRow("INSERT INTO asigaturas VALUES (NULL, ?, ?)", array(
                 $this->Nombre,
-                $this->Horas,
                 $this->Estado,
             )
         );
@@ -145,18 +140,7 @@ class classmaterias extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getHoras()
-    {
-        return $this->Horas;
-    }
 
-    /**
-     * @param mixed $Horas
-     */
-    public function setHoras($Horas)
-    {
-        $this->Horas = $Horas;
-    }
 
     /**
      * @return mixed

@@ -206,14 +206,6 @@
                                             </div>
                                         </div>
 
-                                        <!--__________________________________ horas ------------------>
-
-                                        <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">horas</label>
-                                            <div class="col-sm-6">
-                                                <input type="time" class="form-control" name="Horas" id="Horas" required="" placeholder="horas">
-                                            </div>
-                                        </div>
                                         <!--__________________________________ Estado ------------------>
 
                                         <div class="form-group">
@@ -221,7 +213,7 @@
                                             <div class="col-sm-6">
                                                 <select  class="form-control" name="Estado" id="Estado" required="">
                                                 <option value="null" selected>Seleccione...</option>
-                                                <option value="Activo">Activo</option>
+                                                <option value="activo">Activo</option>
                                                 <option value="inactivo">Inactivo</option>
                                                 </select>
                                             </div>
