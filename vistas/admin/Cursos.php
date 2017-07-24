@@ -1,3 +1,4 @@
+<?php require('../../clases/classaula.php')  ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -129,6 +130,7 @@
                         </li>
                         <li><a href="crearacudiente.php">Acudiente</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -136,6 +138,8 @@
                     <ul>
 
                         <li><a href="Cursos.php" >Cursos</a>
+                        </li>
+                        <li><a href="aulas.php">Aulas</a
                         </li>
 
                         </li>
@@ -155,6 +159,7 @@
     </aside>
 
     <!------------------------ fin menu derecho-------------------->
+
 
 
 
@@ -185,64 +190,114 @@
                                 <li><a href="#profile1" data-toggle="tab">listar</a>
                                 </li>
                             </ul>
+                        </div>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home1">
-                                    <form class="form-horizontal" role="form">
-                                        <!--__________________________________ Tipo de documento ------------------>
+                                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controllercursos.php?action=crear' novalidate>
+                                        <!--__________________________________ confirmar el estado  ------------------>
+
 
                                         <div class="form-group">
+
+                                            <?php if(!empty($_GET['respuesta'])){ ?>
+                                                <?php if ($_GET['respuesta'] == "correcto"){ ?>
+                                                    <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        <strong>EL curso </strong> se registro con exito.</div>
+                                                <?php }else {?>
+                                                    <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        <strong>El curso </strong> no se pudo registrar por favor intente de nuevo.</div>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                            <!--__________________________________ nombre ------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text"  class="form-control" name="Nombre" id="Nombre" required="" placeholder="Nombre" >
+                                                </div>
+                                            </div>
+                                        <!------------------------------jornada ------------------------------>
+                                        <div class="form-group">
+                                            <label for="inputEmail2" class="col-sm-2 control-label">Jornada</label>
+                                            <div class="col-sm-6">
+                                                <select  class="form-control" name="Jornada" id="Jornada" required="">
+                                                    <option value="null" selected>Seleccione...</option>
+                                                    <option value="manhana">mañana</option>
+                                                    <option value="tarde">tarde</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <!--__________________________________ Estado ------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">estado</label>
+                                                <div class="col-sm-6">
+                                                    <select  class="form-control" name="Estado" id="Estado" required="">
+                                                        <option value="null" selected>Seleccione...</option>
+                                                        <option value="activo">Activo</option>
+                                                        <option value="inactivo">Inactivo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--______________________________________aula________________________-->
+                                            <?php echo(classaula::selectaulas(true ,"aula" ,"aula","form-control"));?>
+
 
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <button type="submit" class="btn btn-primary">enviar</button>
+                                                    <button type="reset" class="btn btn-info">cancelar</button>
                                                 </div>
                                             </div>
+
+
+
                                     </form>
 
-                                </div>
-                            </div>
-                                <div class="tab-pane" id="profile1">
+                        </div>
+                    </div>
+                            <div class="tab-pane" id="profile1">
 
-                                    <div class="row">
-                                        <div class="col-md-15">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Acudientes</h3>
-                                                    <div class="actions pull-right">
-                                                        <i class="fa fa-chevron-down"></i>
-                                                        <i class="fa fa-times"></i>
-                                                    </div>
+                                <div class="row">
+                                    <div class="col-md-15">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Acudientes</h3>
+                                                <div class="actions pull-right">
+                                                    <i class="fa fa-chevron-down"></i>
+                                                    <i class="fa fa-times"></i>
                                                 </div>
-                                                <div class="panel-body">
-                                                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Position</th>
-                                                            <th>Office</th>
-                                                            <th>Age</th>
-                                                            <th>Start date</th>
-                                                            <th>Salary</th>
-                                                        </tr>
-                                                        </thead>
-                                                    </table>
+                                            </div>
+                                            <div class="panel-body">
+                                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Position</th>
+                                                        <th>Office</th>
+                                                        <th>Age</th>
+                                                        <th>Start date</th>
+                                                        <th>Salary</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
 
 
 
-                    <!--__________________________________ inicio del formulario ------------------>
+
+
 
 
                 </div>
+            </div>
             </div>
 
         </section>

@@ -133,6 +133,7 @@
                         </li>
                         <li><a href="crearacudiente.php">Acudiente</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -140,6 +141,8 @@
                     <ul>
 
                         <li><a href="Cursos.php" >Cursos</a>
+                        </li>
+                        <li><a href="aulas.php">Aulas</a
                         </li>
 
                         </li>

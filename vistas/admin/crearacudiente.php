@@ -114,47 +114,6 @@
     </header>
 
 
-    <!------------------------ inicio menu derecho-------------------->
-    <aside class="sidebar">
-        <div id="leftside-navigation" class="nano">
-            <ul class="nano-content">
-
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="crearalumno.php">Alumno</a>
-                        </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
-                        </li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <!------------------------ fin menu derecho-------------------->
 
 
     <!--main content start-->

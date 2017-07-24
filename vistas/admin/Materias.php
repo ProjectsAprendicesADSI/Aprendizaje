@@ -116,7 +116,6 @@
     </header>
 
 
-
     <!------------------------ inicio menu derecho-------------------->
     <aside class="sidebar">
         <div id="leftside-navigation" class="nano">
@@ -132,6 +131,7 @@
                         </li>
                         <li><a href="crearacudiente.php">Acudiente</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -139,6 +139,8 @@
                     <ul>
 
                         <li><a href="Cursos.php" >Cursos</a>
+                        </li>
+                        <li><a href="aulas.php">Aulas</a
                         </li>
 
                         </li>
@@ -158,6 +160,7 @@
     </aside>
 
     <!------------------------ fin menu derecho-------------------->
+
 
 
     <!--main content start-->
@@ -187,7 +190,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home1">
-                                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controllermaterias.php? action=crear' novalidate>
+                                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controllermaterias.php?action=crear' novalidate>
                                         <?php if(!empty($_GET['respuesta'])){ ?>
                                             <?php if ($_GET['respuesta'] == "correcto"){ ?>
                                                 <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -245,7 +248,6 @@
                                                         <thead>
                                                         <tr>
                                                             <th>Nombre</th>
-                                                            <th>Horas</th>
                                                             <th>Estado</th>
                                                             <th>Acciones</th>
 
@@ -259,7 +261,6 @@
                                                             ?>
                                                             <tr>
                                                                 <td><?php echo $materia->getNombre(); ?></td>
-                                                                <td><?php echo $materia->getHoras(); ?></td>
                                                                 <td><?php echo $materia->getEstado()?></td>
                                                             </tr>
                                                         <?php } ?>

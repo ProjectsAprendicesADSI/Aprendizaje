@@ -130,6 +130,7 @@
                         </li>
                         <li><a href="crearacudiente.php">Acudiente</a>
                         </li>
+
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -138,12 +139,14 @@
 
                         <li><a href="Cursos.php" >Cursos</a>
                         </li>
+                        <li><a href="aulas.php">Aulas</a
+                        </li>
 
                         </li>
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
 
                         <li><a href="Materias.php">Asignaturas</a>
@@ -156,6 +159,7 @@
     </aside>
 
     <!------------------------ fin menu derecho-------------------->
+
 
 
     <!--main content start-->
