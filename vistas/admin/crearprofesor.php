@@ -304,7 +304,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>Tipo de documeto</th>
-                                                        <th>Documeto</th>
+                                                        <th>Documento</th>
                                                         <th>Nombre</th>
                                                         <th>Apellido</th>
                                                         <th>Telefono</th>

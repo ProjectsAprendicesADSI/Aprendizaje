@@ -245,7 +245,6 @@
                                                         <thead>
                                                         <tr>
                                                             <th>Nombre</th>
-                                                            <th>Horas</th>
                                                             <th>Estado</th>
                                                             <th>Acciones</th>
 
@@ -259,7 +258,6 @@
                                                             ?>
                                                             <tr>
                                                                 <td><?php echo $materia->getNombre(); ?></td>
-                                                                <td><?php echo $materia->getHoras(); ?></td>
                                                                 <td><?php echo $materia->getEstado()?></td>
                                                             </tr>
                                                         <?php } ?>

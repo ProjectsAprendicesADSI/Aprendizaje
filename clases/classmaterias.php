@@ -27,11 +27,11 @@ class classmaterias extends db_abstract_class
     static public function selectmaterias ($isRequired=true, $id, $nombre, $class)
     {
         $arrmaterias = classmaterias::getAll(); /*  */
-        $htmlSelect = '<select onchange="js: hola()"' . (($isRequired) ? "required" : "") . " id= '" . $id . "' name='" . $nombre . "' class='" . $class . "'>";
+        $htmlSelect = '<select ' . (($isRequired) ? "required" : "") . " id= '" . $id . "' name='" . $nombre . "' class='" . $class . "'>";
         $htmlSelect .= "<option value='nada' >Seleccione...</option>";
         if (count($arrmaterias) > 0) {
             foreach ($arrmaterias as $materia) {
-                $htmlSelect .= "<option value='".$materia->getNombre()."'>".$materia->getNombre()." "."</option>";
+                $htmlSelect .= "<option value='".$materia->getidasignatura()."'>".$materia->getNombre()." "."</option>";
             }
             $htmlSelect .= "</select>";
             return $htmlSelect;
