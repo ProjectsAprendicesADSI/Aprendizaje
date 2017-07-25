@@ -7,23 +7,23 @@ require_once (__DIR__.'/../clases/classalumno.php');
  * Time: 22:47
  */
 if(!empty($_GET['action'])){
-    controlleralumno::main($_GET['action']);
+    controlleracudiente::main($_GET['action']);
 }else{
     echo "No se encontro ninguna accion...";
 }
-class controlleralumno
+class controlleracudiente
 {
     static function main($action){
         if ($action == "crear"){
-            controlleralumno::crear();
+            controlleracudiente::crear();
         }else if ($action == "editar"){
-            controlleralumno::editar();
+            controlleracudiente::editar();
         }else if ($action == "buscarID"){
-            controlleralumno::buscarID();
+            controlleracudiente::buscarID();
         }else if ($action == "ActivarEspecialidad"){
-            controlleralumno::ActivarEspecialidad();
+            controlleracudiente::ActivarEspecialidad();
         }else if ($action == "InactivarEspecialidad"){
-            controlleralumno::InactivarEspecialidad();
+            controlleracudiente::InactivarEspecialidad();
         }
     }
 
@@ -40,11 +40,11 @@ class controlleralumno
             $arrayalumno['Edad'] = $_POST['Edad'];
             $arrayalumno['Curso'] = $_POST['Curso'];
             $profesor = new classalumno($arrayalumno);
-          $profesor->insertar();
-          header('Location: ../vistas/admin/crearalumno.php?respuesta=correcto' );
+            $profesor->insertar();
+            header('Location: ../vistas/admin/crearacudiente.php.php?respuesta=correcto' );
         } catch (Exception $e) {
             echo $e->getMessage();
-            //header("Location: ../vistas/admin/crearalumno.php?respuesta=error");
+            header("Location: ../vistas/admin/crearacudiente.php?respuesta=error");
 
         }
     }

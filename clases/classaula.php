@@ -32,7 +32,6 @@ class classaula extends db_abstract_class
     public function selectaulas ($isRequired=true, $id, $nombre, $class)
     {
         $arraulas = classaula::getAll(); /*  */
-        $hola=$arraulas;
         $htmlSelect = '<select ' . (($isRequired) ? "required" : "") . " id= '" . $id . "' name='" . $nombre . "' class='" . $class . "'>";
         $htmlSelect .= "<option value='nada' >Seleccione...</option>";
         if (count($arraulas) > 0) {

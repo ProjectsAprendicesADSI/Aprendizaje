@@ -2,7 +2,6 @@
 require_once (__DIR__.'/../clases/classcursos.php');
 
 if(!empty($_GET['action'])){
-    echo $_GET['action'];
     controllercursos::main($_GET['action']);
 }else{
     echo "No se encontro ninguna accion...";

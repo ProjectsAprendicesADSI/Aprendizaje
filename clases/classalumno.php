@@ -19,6 +19,7 @@ class classalumno extends db_abstract_class
     private $Pass;
     private $Edad;
     private $Curso;
+    private $Foto;
 
     public function __construct($alumno_data = array())
     {
@@ -33,6 +34,7 @@ class classalumno extends db_abstract_class
             $this->Documento= "";
             $this->Nombre= "";
             $this->Apellido= "";
+            $this->Foto="";
             $this->Telefono= "";
             $this->Usuario= "";
             $this->Pass= "";
@@ -45,7 +47,7 @@ class classalumno extends db_abstract_class
     }
 
 
-    protected static function buscarForId($id)
+    public static function buscarForId($id)
     {
         // TODO: Implement buscarForId() method.
     }
@@ -55,7 +57,7 @@ class classalumno extends db_abstract_class
         // TODO: Implement buscar() method.
     }
 
-    protected static function getAll()
+    public static function getAll()
     {
         // TODO: Implement getAll() method.
     }
@@ -68,6 +70,7 @@ class classalumno extends db_abstract_class
                 $this->Documento,
                 $this->Nombre,
                 $this->Apellido,
+                $this->Foto,
                 $this->Telefono,
                 $this->Usuario,
                 $this->Pass,
@@ -246,6 +249,23 @@ class classalumno extends db_abstract_class
     public function setCurso($Curso)
     {
         $this->Curso = $Curso;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getFoto()
+    {
+        return $this->Foto;
+    }
+
+    /**
+     * @param mixed $Foto
+     */
+    public function setFoto($Foto)
+    {
+        $this->Foto = $Foto;
     }
 
 

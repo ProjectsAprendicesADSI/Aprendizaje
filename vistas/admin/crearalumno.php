@@ -1,4 +1,5 @@
 <?php require('../../clases/classcursos.php') ?>
+<?php require('../../clases/classalumno.php') ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -169,109 +170,183 @@
                     <ul class="breadcrumb">
                         <li><a href="#">Persona</a>
                         </li>
-                        <li class="active">registrar alumno</li>
+                        <li class="active">Asignaturas</li>
 
                     </ul>
                     <!--breadcrumbs end -->
-                    <h1 class="h1">Registrar Alumno</h1>
+                    <h1 class="h1">Acudiente</h1>
                 </div>
+                <div class="panel-body">
+
+
+
+                    <div class="panel-body">
+                        <div class="tab-wrapper tab-primary">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home1" data-toggle="tab">Registrar</a>
+                                </li>
+                                <li><a href="#profile1" data-toggle="tab">listar</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home1">
+                                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controlleralumno.php?action=crear' novalidate>
+                                        <!-------------------- mesnsaje de confimacion------------>
+                                        <div class="form-group">
+
+                                            <?php if(!empty($_GET['respuesta'])){ ?>
+                                                <?php if ($_GET['respuesta'] == "correcto"){ ?>
+                                                    <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        <strong>EL Alumno </strong> se registro con exito.</div>
+                                                <?php }else {?>
+                                                    <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                        <strong>El Alumno </strong> no se pudo registrar por favor intente de nuevo.</div>
+                                                <?php } ?>
+                                            <?php } ?>
+
+
+                                            <!--__________________________________ Tipo de documento ------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">Tipo de documento</label>
+                                                <div class="col-sm-6">
+                                                    <select class="form-control" id="Tipodocumento" name="Tipodocumento">
+                                                        <option value="null" selected>seleccione...</option>
+                                                        <option value="cedula">Cedula</option>
+                                                        <option value="tipo">tarjeta de identidad</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________ Numero de documeto------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">Numero de documeto</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" name="Documento" id="Documento" required="" placeholder="Numero de documeto">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________ NOmbre ------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" name="Nombre" id="Nombre" required="" placeholder="Nombre">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________ Apellido ------------------>
+
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">Apellido</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" name="Apellido" id="Apellido" required="" placeholder="Apellido">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________ telefono ------------------>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">Telefono</label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" class="form-control" name="Telefono" id="Telefono" required="" placeholder="Telefono">
+                                                </div>
+                                            </div>
+
+
+                                            <!--__________________________________ usuario ------------------>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" name="Usuario" id="Usuario" required="" placeholder="Ususario">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________ contraseña ------------------>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">contraseña</label>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control" name="Pass" id="Pass" required="" placeholder="contraseña">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________edad    ------------------>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">edad</label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" max="99" min="5" class="form-control" name="Edad" id="Edad" required="" placeholder="edad">
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________curso  ------------------>
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">curso</label>
+                                                <div class="col-sm-6">
+                                                    <?php echo(classcursos::selectcurso(true ,"Curso" ,"Curso","form-control"));?>
+                                                </div>
+                                            </div>
+
+                                            <!--__________________________________botones ------------------>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-primary">enviar</button>
+                                                    <button type="reset" class="btn btn-info">cancelar</button>
+                                                </div>
+                                            </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane" id="profile1">
+
+                                <div class="row">
+                                    <div class="col-md-15">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Acudientes</h3>
+                                                <div class="actions pull-right">
+                                                    <i class="fa fa-chevron-down"></i>
+                                                    <i class="fa fa-times"></i>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Estado</th>
+
+
+                                                    </tr>
+                                                    </thead>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!--__________________________________ inicio del formulario ------------------>
+
+
             </div>
-
-                    <!--__________________________________ inicio del formulario ------------------>
-                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controlleralumno.php?action=crear' novalidate>
-                    <!--__________________________________ Tipo de documento ------------------>
-                        <?php if(!empty($_GET['respuesta'])){ ?>
-                            <?php if ($_GET['respuesta'] == "correcto"){ ?>
-                                <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <strong>El Alumno </strong> se registro con exito.</div>
-                            <?php }else {?>
-                                <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <strong>El xxxx </strong> no se pudo registrar por favor intente cambiar el usuario y verifique los datos.</div>
-                            <?php } ?>
-                        <?php } ?>
-
-                            <div class="form-group">
-                                <label for="inputEmail2" class="col-sm-2 control-label">Tipo de documento</label>
-                                <div class="col-sm-6">
-                                <select class="form-control" id="Tipodocumento" name="Tipodocumento">
-                                    <option value="null" selected>seleccione...</option>
-                                    <option value="cedula">Cedula</option>
-                                    <option value="tipo">tarjeta de identidad</option>
-                                </select>
-                            </div>
-                </div>
-                    <!--__________________________________ Numero de documeto------------------>
-
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">Numero de documeto</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="Documento" id="Documento" required="" placeholder="Numero de documeto">
-                            </div>
-                        </div>
-                    <!--__________________________________ NOmbre ------------------>
-
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="Nombre" id="Nombre" required="" placeholder="Nombre">
-                            </div>
-                        </div>
-                    <!--__________________________________ Apellido ------------------>
-
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Apellido</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="Apellido" id="Apellido" required="" placeholder="Apellido">
-                            </div>
-                        </div>
-                        <!--__________________________________ telefono ------------------>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Telefono</label>
-                            <div class="col-sm-6">
-                                <input type="number" class="form-control" name="Telefono" id="Telefono" required="" placeholder="Telefono">
-                            </div>
-                        </div>
-                        <!--__________________________________ usuario ------------------>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="Usuario" id="Usuario" required="" placeholder="Ususario">
-                            </div>
-                        </div>
-                        <!--__________________________________ contraseña ------------------>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">contraseña</label>
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control" name="Pass" id="Pass" required="" placeholder="contraseña">
-                            </div>
-                        </div>
-                        <!--__________________________________edad    ------------------>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">edad</label>
-                            <div class="col-sm-6">
-                                <input type="number" max="99" min="5" class="form-control" name="Edad" id="Edad" required="" placeholder="edad">
-                            </div>
-                        </div>
-                        <!--__________________________________curso  ------------------>
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">curso</label>
-                            <div class="col-sm-6">
-                                <?php echo(classcursos::selectcurso(true ,"Curso" ,"Curso","form-control"));?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">enviar</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
             </div>
 
         </section>
     </section>
+
     <!--main content end-->
     <!--sidebar right start-->
 

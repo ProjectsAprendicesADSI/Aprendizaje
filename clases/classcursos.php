@@ -8,7 +8,7 @@ require_once ('db_abstract_class.php');
  */
 class classcursos extends db_abstract_class
 {
-  private $idcursos;
+  private $Idcursos;
   private $Nombre;
   private $Jornada;
   private $Aula;
@@ -22,7 +22,7 @@ class classcursos extends db_abstract_class
                 $this->$campo = $valor;
             }
         }else {
-            $this->idcursos= "";
+            $this->Idcursos= "";
             $this->Nombre = "";
             $this->Jornada = "";
             $this->Aula="";
@@ -58,9 +58,10 @@ class classcursos extends db_abstract_class
 
         foreach ($getrows as $valor) {
             $curso = new classcursos();
-            $curso->idcursos = $valor['idcursos'];
+            $curso->Idcursos = $valor['Idcursos'];
             $curso->Nombre = $valor['Nombre'];
             $curso->Jornada = $valor['Jornada'];
+            $curso->Estado= $valor['Estado'];
             $curso->Aula = $valor['Aula'];
             array_push($arrcurso, $curso);
         }
@@ -77,10 +78,10 @@ class classcursos extends db_abstract_class
     public function insertar()
     {
         // TODO: Implement insertar() method.
-        echo $this->Aula." " ;
-        $this->insertRow("INSERT INTO cursos VALUES (NULL, ?, ?, ?)", array(
+        $this->insertRow("INSERT INTO cursos VALUES (NULL, ?, ?, ?, ?)", array(
                 $this->Nombre,
                 $this->Jornada,
+                $this->Estado,
                 $this->Aula,
             )
                     );
@@ -103,15 +104,15 @@ class classcursos extends db_abstract_class
      */
     public function getIdcursos()
     {
-        return $this->idcursos;
+        return $this->Idcursos;
     }
 
     /**
      * @param mixed $idcurso
      */
-    public function setIdcurso($idcursos)
+    public function setIdcurso($Idcursos)
     {
-        $this->idcursos = $idcursos;
+        $this->Idcursos = $Idcursos;
     }
 
     /**
