@@ -186,7 +186,7 @@
                                     <strong>El Alumno </strong> se registro con exito.</div>
                             <?php }else {?>
                                 <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <strong>El Alumno </strong> no se pudo registrar por favor intente cambiar el usuario y verifique los datos.</div>
+                                    <strong>El xxxx </strong> no se pudo registrar por favor intente cambiar el usuario y verifique los datos.</div>
                             <?php } ?>
                         <?php } ?>
 
