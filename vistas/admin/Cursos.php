@@ -1,3 +1,4 @@
+<?php require('../../clases/classcursos.php')  ?>
 <?php require('../../clases/classaula.php')  ?>
     <!DOCTYPE html>
     <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -272,14 +273,26 @@
                                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
+                                                        <th>Nombre</th>
+                                                        <th>Jornada</th>
+                                                        <th>Aula</th>
+
                                                     </tr>
                                                     </thead>
+                                                    <tbody>
+                                                    <?php
+                                                    $arrcurso = classcursos::getAll();
+                                                    foreach ($arrcurso as $curso){
+                                                        ?>
+                                                       <tr>
+                                                            <td><?php echo $curso->getNombre(); ?></td>
+                                                            <td><?php echo $curso->getJornada(); ?></td>
+                                                            <td><?php echo $curso->getAula()?></td>
+
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                    </tbody>
                                                 </table>
 
                                             </div>

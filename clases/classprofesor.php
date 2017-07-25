@@ -15,12 +15,12 @@ class classprofesor extends db_abstract_class
     private $Contrasenha;
 
 
-    public function __construct($profesor_data = array())
+    public function __construct($alumno_data = array())
     {
 
         parent::__construct(); //Llama al contructor padre "la clase conexion" para conectarme a la BD
-        if(count($profesor_data)>1){ //
-            foreach ($profesor_data as $campo => $valor){
+        if(count($alumno_data)>1){ //
+            foreach ($alumno_data as $campo => $valor){
                 $this->$campo = $valor;
             }
         }else {

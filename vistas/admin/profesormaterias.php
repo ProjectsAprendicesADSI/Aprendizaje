@@ -237,7 +237,7 @@
 
     ga('create', 'UA-46627904-1', 'authenticgoods.co');
     ga('send', 'pageview');
-    
+
 </script>
 
 </body>

@@ -1,3 +1,4 @@
+<?php require('../../clases/classcursos.php') ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -174,15 +175,25 @@
                     <!--breadcrumbs end -->
                     <h1 class="h1">Registrar Alumno</h1>
                 </div>
-                <div class="panel-body">
+            </div>
+
                     <!--__________________________________ inicio del formulario ------------------>
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" method="post" action='../../controladores/controlleralumno.php?action=crear' novalidate>
                     <!--__________________________________ Tipo de documento ------------------>
+                        <?php if(!empty($_GET['respuesta'])){ ?>
+                            <?php if ($_GET['respuesta'] == "correcto"){ ?>
+                                <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <strong>El Alumno </strong> se registro con exito.</div>
+                            <?php }else {?>
+                                <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <strong>El Alumno </strong> no se pudo registrar por favor intente cambiar el usuario y verifique los datos.</div>
+                            <?php } ?>
+                        <?php } ?>
 
                             <div class="form-group">
                                 <label for="inputEmail2" class="col-sm-2 control-label">Tipo de documento</label>
                                 <div class="col-sm-6">
-                                <select class="form-control">
+                                <select class="form-control" id="Tipodocumento" name="Tipodocumento">
                                     <option value="null" selected>seleccione...</option>
                                     <option value="cedula">Cedula</option>
                                     <option value="tipo">tarjeta de identidad</option>
@@ -194,7 +205,7 @@
                         <div class="form-group">
                             <label for="inputEmail2" class="col-sm-2 control-label">Numero de documeto</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Numero de documeto">
+                                <input type="text" class="form-control" name="Documento" id="Documento" required="" placeholder="Numero de documeto">
                             </div>
                         </div>
                     <!--__________________________________ NOmbre ------------------>
@@ -202,7 +213,7 @@
                         <div class="form-group">
                             <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Nombre">
+                                <input type="text" class="form-control" name="Nombre" id="Nombre" required="" placeholder="Nombre">
                             </div>
                         </div>
                     <!--__________________________________ Apellido ------------------>
@@ -210,14 +221,42 @@
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">Apellido</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Apellido">
+                                <input type="text" class="form-control" name="Apellido" id="Apellido" required="" placeholder="Apellido">
                             </div>
                         </div>
-                        <!--__________________________________  ------------------>
+                        <!--__________________________________ telefono ------------------>
                         <div class="form-group">
-                            <label for="input1" class="col-sm-2 control-label">Photo</label>
-                            <div>
-
+                            <label for="inputPassword3" class="col-sm-2 control-label">Telefono</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" name="Telefono" id="Telefono" required="" placeholder="Telefono">
+                            </div>
+                        </div>
+                        <!--__________________________________ usuario ------------------>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="Usuario" id="Usuario" required="" placeholder="Ususario">
+                            </div>
+                        </div>
+                        <!--__________________________________ contraseña ------------------>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">contraseña</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" name="Pass" id="Pass" required="" placeholder="contraseña">
+                            </div>
+                        </div>
+                        <!--__________________________________edad    ------------------>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">edad</label>
+                            <div class="col-sm-6">
+                                <input type="number" max="99" min="5" class="form-control" name="Edad" id="Edad" required="" placeholder="edad">
+                            </div>
+                        </div>
+                        <!--__________________________________curso  ------------------>
+                        <div class="form-group">
+                            <label for="inputEmail2" class="col-sm-2 control-label">curso</label>
+                            <div class="col-sm-6">
+                                <?php echo(classcursos::selectcurso(true ,"Curso" ,"Curso","form-control"));?>
                             </div>
                         </div>
 

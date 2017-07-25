@@ -8,7 +8,7 @@ require_once ('db_abstract_class.php');
  */
 class classcursos extends db_abstract_class
 {
-  private $idcurso;
+  private $idcursos;
   private $Nombre;
   private $Jornada;
   private $Aula;
@@ -22,11 +22,28 @@ class classcursos extends db_abstract_class
                 $this->$campo = $valor;
             }
         }else {
-            $this->idcurso= "";
+            $this->idcursos= "";
             $this->Nombre = "";
             $this->Jornada = "";
             $this->Aula="";
         }
+    }
+    static public function selectcurso ($isRequired=true, $id, $nombre, $class)
+    {
+        $arrmaterias = classcursos::getAll(); /*  */
+        $htmlSelect = '<select ' . (($isRequired) ? "required" : "") . " id= '" . $id . "' name='" . $nombre . "' class='" . $class . "'>";
+        $htmlSelect .= "<option value='nada' >Seleccione...</option>";
+        if (count($arrmaterias) > 0) {
+            foreach ($arrmaterias as $materia) {
+                $htmlSelect .= "<option value='".$materia->getidcursos()."'>".$materia->getNombre()." "."</option>";
+            }
+            $htmlSelect .= "</select>";
+        }
+        else{
+            $htmlSelect="no hay metrias registradas por favor registre materias y vuelva a intentarlo";
+        }
+        return $htmlSelect;
+
     }
     public static function buscarForId($id)
     {
@@ -35,12 +52,26 @@ class classcursos extends db_abstract_class
 
     public static function buscar($query)
     {
-        // TODO: Implement buscar() method.
+        $arrcurso = array();
+        $tmp = new classcursos();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $curso = new classcursos();
+            $curso->idcursos = $valor['idcursos'];
+            $curso->Nombre = $valor['Nombre'];
+            $curso->Jornada = $valor['Jornada'];
+            $curso->Aula = $valor['Aula'];
+            array_push($arrcurso, $curso);
+        }
+        $tmp->Disconnect();
+        return $arrcurso;
+
     }
 
     public static function getAll()
     {
-        // TODO: Implement getAll() method.
+        return classcursos::buscar("SELECT * FROM cursos");
     }
 
     public function insertar()
@@ -70,17 +101,17 @@ class classcursos extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getIdcurso()
+    public function getIdcursos()
     {
-        return $this->idcurso;
+        return $this->idcursos;
     }
 
     /**
      * @param mixed $idcurso
      */
-    public function setIdcurso($idcurso)
+    public function setIdcurso($idcursos)
     {
-        $this->idcurso = $idcurso;
+        $this->idcursos = $idcursos;
     }
 
     /**

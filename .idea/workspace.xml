@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69074820-3966-41b6-8b63-7e1554420ebc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/css/dataTables.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/images/sort_asc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/images/sort_asc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/images/sort_both.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/images/sort_desc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/images/sort_desc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/js/dataTables.bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/dataTables/js/jquery.dataTables.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Aprendizaje.iml" afterPath="$PROJECT_DIR$/.idea/Aprendizaje.iml" />
+    <list default="true" id="69074820-3966-41b6-8b63-7e1554420ebc" name="Default" comment="materias">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clases/classalumno.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/controlleralumno.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bd.txt" afterPath="$PROJECT_DIR$/bd.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/classcursos.php" afterPath="$PROJECT_DIR$/clases/classcursos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/controlleraula.php" afterPath="$PROJECT_DIR$/controladores/controlleraula.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/controllercursos.php" afterPath="$PROJECT_DIR$/controladores/controllercursos.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/classmaterias.php" afterPath="$PROJECT_DIR$/clases/classmaterias.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clases/classprofesor.php" afterPath="$PROJECT_DIR$/clases/classprofesor.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/Cursos.php" afterPath="$PROJECT_DIR$/vistas/admin/Cursos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/Materias.php" afterPath="$PROJECT_DIR$/vistas/admin/Materias.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/aulas.php" afterPath="$PROJECT_DIR$/vistas/admin/aulas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/crearacudiente.php" afterPath="$PROJECT_DIR$/vistas/admin/crearacudiente.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/crearalumno.php" afterPath="$PROJECT_DIR$/vistas/admin/crearalumno.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/crearprofesor.php" afterPath="$PROJECT_DIR$/vistas/admin/crearprofesor.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/profesormaterias.php" afterPath="$PROJECT_DIR$/vistas/admin/profesormaterias.php" />
     </list>
     <ignored path="C:\MAMP\htdocs\Aprendizaje\.idea\shelf/" />
@@ -38,12 +27,35 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="profesormaterias.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vistas/admin/profesormaterias.php">
+      <file leaf-file-name="crearalumno.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/admin/crearalumno.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="239" column="4" lean-forward="false" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
+            <state relative-caret-position="408">
+              <caret line="258" column="88" lean-forward="true" selection-start-line="258" selection-start-column="88" selection-end-line="258" selection-end-column="88" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controllerprofesores.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controladores/controllerprofesores.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classcursos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clases/classcursos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+              <folding>
+                <marker date="1500960215629" expanded="true" signature="2241:2261" ph="SELECT * FRO... cursos" />
+                <marker date="1500960215629" expanded="true" signature="2412:2453" ph="INSERT INTO cursos... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,18 +63,8 @@
       <file leaf-file-name="crearacudiente.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vistas/admin/crearacudiente.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
+            <state relative-caret-position="6715">
               <caret line="488" column="48" lean-forward="false" selection-start-line="488" selection-start-column="48" selection-end-line="488" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllermaterias.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controladores/controllermaterias.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -71,8 +73,50 @@
       <file leaf-file-name="crearprofesor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vistas/admin/crearprofesor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="376" column="8" lean-forward="true" selection-start-line="376" selection-start-column="8" selection-end-line="376" selection-end-column="8" />
+            <state relative-caret-position="352">
+              <caret line="203" column="0" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="203" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classalumno.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clases/classalumno.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+              <folding>
+                <marker date="1500961059790" expanded="true" signature="1412:1478" ph="INSERT INTO estudiante... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_abstract_class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clases/db_abstract_class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="78" column="41" lean-forward="true" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controlleralumno.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controladores/controlleralumno.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controlleraula.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controladores/controlleraula.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -81,63 +125,8 @@
       <file leaf-file-name="Cursos.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vistas/admin/Cursos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="316" column="48" lean-forward="false" selection-start-line="316" selection-start-column="48" selection-end-line="316" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crearalumno.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/admin/crearalumno.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1263">
-              <caret line="157" column="68" lean-forward="false" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aulas.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/admin/aulas.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="304" column="7" lean-forward="true" selection-start-line="304" selection-start-column="7" selection-end-line="304" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classmaterias.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clases/classmaterias.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="29" column="160" lean-forward="false" selection-start-line="29" selection-start-column="111" selection-end-line="29" selection-end-column="160" />
-              <folding>
-                <marker date="1500944269296" expanded="true" signature="1639:1687" ph="SELECT * FRO... asignarutras" />
-                <marker date="1500944269296" expanded="true" signature="2610:2634" ph="SELECT * FRO... asigaturas" />
-                <marker date="1500944269296" expanded="true" signature="2709:2751" ph="INSERT INTO asigaturas... " />
-                <marker date="1500944269296" expanded="true" signature="2948:3019" ph="UPDATE espec... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inicioadmi.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/admin/inicioadmi.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2198">
-              <caret line="105" column="49" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Materias.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/admin/Materias.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="301" column="45" lean-forward="false" selection-start-line="301" selection-start-column="45" selection-end-line="301" selection-end-column="45" />
+            <state relative-caret-position="357">
+              <caret line="60" column="46" lean-forward="true" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -164,21 +153,24 @@
         <option value="$PROJECT_DIR$/vistas/index.html" />
         <option value="$PROJECT_DIR$/vistas/index.php" />
         <option value="$PROJECT_DIR$/clases/classprofesor.php" />
-        <option value="$PROJECT_DIR$/clases/classmaterias.php" />
         <option value="$PROJECT_DIR$/controladores/controllerlogin.php" />
         <option value="$PROJECT_DIR$/vistas/inicio.html" />
         <option value="$PROJECT_DIR$/controladores/controlleraula.php" />
         <option value="$PROJECT_DIR$/bd.txt" />
-        <option value="$PROJECT_DIR$/clases/classcursos.php" />
         <option value="$PROJECT_DIR$/controladores/controllercursos.php" />
-        <option value="$PROJECT_DIR$/vistas/admin/crearalumno.php" />
         <option value="$PROJECT_DIR$/assets/plugins/dataTables/js/dataTables.bootstrap.js" />
         <option value="$PROJECT_DIR$/vistas/admin/crearprofesor.php" />
-        <option value="$PROJECT_DIR$/vistas/admin/aulas.php" />
         <option value="$PROJECT_DIR$/vistas/admin/crearacudiente.php" />
-        <option value="$PROJECT_DIR$/vistas/admin/Cursos.php" />
         <option value="$PROJECT_DIR$/vistas/admin/Materias.php" />
         <option value="$PROJECT_DIR$/vistas/admin/profesormaterias.php" />
+        <option value="$PROJECT_DIR$/clases/classmaterias.php" />
+        <option value="$PROJECT_DIR$/vistas/admin/Cursos.php" />
+        <option value="$PROJECT_DIR$/vistas/admin/aulas.php" />
+        <option value="$PROJECT_DIR$/controladores/controllerprofesores.php" />
+        <option value="$PROJECT_DIR$/vistas/admin/crearalumno.php" />
+        <option value="$PROJECT_DIR$/clases/classcursos.php" />
+        <option value="$PROJECT_DIR$/controladores/controlleralumno.php" />
+        <option value="$PROJECT_DIR$/clases/classalumno.php" />
       </list>
     </option>
   </component>
@@ -397,7 +389,7 @@
       <workItem from="1500604486477" duration="891000" />
       <workItem from="1500858145230" duration="5609000" />
       <workItem from="1500873456325" duration="5428000" />
-      <workItem from="1500944306442" duration="6799000" />
+      <workItem from="1500944306442" duration="15540000" />
     </task>
     <task id="LOCAL-00001" summary="materias">
       <created>1500860828203</created>
@@ -410,7 +402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18965000" />
+    <option name="totallyTimeSpent" value="27706000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,7 +414,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1380" height="742" extended-state="7" />
+    <frame x="-7" y="-7" width="1380" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26626325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -445,21 +437,21 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2624811" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26626325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -483,30 +475,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controladores/controllermaterias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/inicio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3553">
-          <caret line="209" column="57" lean-forward="false" selection-start-line="209" selection-start-column="57" selection-end-line="209" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/plugins/countTo/jquery.countTo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -560,15 +528,15 @@
         <state relative-caret-position="2023">
           <caret line="119" column="24" lean-forward="false" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
           <folding>
-            <marker date="1500877163018" expanded="true" signature="1212:1846" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1266:1594" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1397:1563" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1645:1819" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="2118:2160" ph="SELECT * FRO... profesor" />
-            <marker date="1500877163018" expanded="true" signature="3855:3877" ph="SELECT * FRO... profesor" />
-            <marker date="1500877163018" expanded="true" signature="3953:4014" ph="INSERT INTO profesor... " />
-            <marker date="1500877163018" expanded="true" signature="4446:4619" ph="UPDATE profe... " />
-            <marker date="1500877163018" expanded="true" signature="5133:5169" ph="SELECT MAX(i... profesor" />
+            <marker date="1500955166597" expanded="true" signature="1206:1840" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1260:1588" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1391:1557" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1639:1813" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="2112:2154" ph="SELECT * FRO... profesor" />
+            <marker date="1500955166597" expanded="true" signature="3849:3871" ph="SELECT * FRO... profesor" />
+            <marker date="1500955166597" expanded="true" signature="3947:4008" ph="INSERT INTO profesor... " />
+            <marker date="1500955166597" expanded="true" signature="4440:4613" ph="UPDATE profe... " />
+            <marker date="1500955166597" expanded="true" signature="5127:5163" ph="SELECT MAX(i... profesor" />
           </folding>
         </state>
       </provider>
@@ -693,40 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/controllerprofesores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/db_abstract_class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/classprofesor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding>
-            <marker date="1500877163018" expanded="true" signature="1212:1846" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1266:1594" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1397:1563" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="1645:1819" ph="..." />
-            <marker date="1500877163018" expanded="true" signature="2118:2160" ph="SELECT * FRO... profesor" />
-            <marker date="1500877163018" expanded="true" signature="3855:3877" ph="SELECT * FRO... profesor" />
-            <marker date="1500877163018" expanded="true" signature="3953:4014" ph="INSERT INTO profesor... " />
-            <marker date="1500877163018" expanded="true" signature="4446:4619" ph="UPDATE profe... " />
-            <marker date="1500877163018" expanded="true" signature="5133:5169" ph="SELECT MAX(i... profesor" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controllerlogin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -783,58 +717,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/controlleraula.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/classlogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/classcursos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-          <folding>
-            <marker date="1500949387428" expanded="true" signature="1173:1214" ph="INSERT INTO cursos... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controllercursos.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/controllermaterias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/classmaterias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="29" column="160" lean-forward="false" selection-start-line="29" selection-start-column="111" selection-end-line="29" selection-end-column="160" />
-          <folding>
-            <marker date="1500944269296" expanded="true" signature="1639:1687" ph="SELECT * FRO... asignarutras" />
-            <marker date="1500944269296" expanded="true" signature="2610:2634" ph="SELECT * FRO... asigaturas" />
-            <marker date="1500944269296" expanded="true" signature="2709:2751" ph="INSERT INTO asigaturas... " />
-            <marker date="1500944269296" expanded="true" signature="2948:3019" ph="UPDATE espec... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,46 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/admin/aulas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="304" column="7" lean-forward="true" selection-start-line="304" selection-start-column="7" selection-end-line="304" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/admin/crearacudiente.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="488" column="48" lean-forward="false" selection-start-line="488" selection-start-column="48" selection-end-line="488" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/admin/crearalumno.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1263">
-          <caret line="157" column="68" lean-forward="false" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/admin/crearprofesor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="376" column="8" lean-forward="true" selection-start-line="376" selection-start-column="8" selection-end-line="376" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/admin/Cursos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="316" column="48" lean-forward="false" selection-start-line="316" selection-start-column="48" selection-end-line="316" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/admin/inicioadmi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2198">
@@ -902,9 +749,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classlogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classaula.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="9" />
+          <folding>
+            <marker date="1500944213326" expanded="true" signature="2153:2171" ph="SELECT * FRO... aula" />
+            <marker date="1500944213326" expanded="true" signature="2291:2327" ph="INSERT INTO aula... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classprofesor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="129" column="28" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="129" selection-end-column="28" />
+          <folding>
+            <marker date="1500955166597" expanded="true" signature="1206:1840" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1260:1588" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1391:1557" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="1639:1813" ph="..." />
+            <marker date="1500955166597" expanded="true" signature="2112:2154" ph="SELECT * FRO... profesor" />
+            <marker date="1500955166597" expanded="true" signature="3849:3871" ph="SELECT * FRO... profesor" />
+            <marker date="1500955166597" expanded="true" signature="3947:4008" ph="INSERT INTO profesor... " />
+            <marker date="1500955166597" expanded="true" signature="4440:4613" ph="UPDATE profe... " />
+            <marker date="1500955166597" expanded="true" signature="5127:5163" ph="SELECT MAX(i... profesor" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/controllermaterias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/admin/Materias.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="2210">
           <caret line="301" column="45" lean-forward="false" selection-start-line="301" selection-start-column="45" selection-end-line="301" selection-end-column="45" />
           <folding />
         </state>
@@ -912,9 +804,115 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/admin/profesormaterias.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="239" column="4" lean-forward="false" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
+        <state relative-caret-position="179">
+          <caret line="192" column="71" lean-forward="true" selection-start-line="192" selection-start-column="71" selection-end-line="192" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classmaterias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <marker date="1500953040272" expanded="true" signature="1618:1666" ph="SELECT * FRO... asignarutras" />
+            <marker date="1500953040272" expanded="true" signature="2589:2613" ph="SELECT * FRO... asigaturas" />
+            <marker date="1500953040272" expanded="true" signature="2688:2730" ph="INSERT INTO asigaturas... " />
+            <marker date="1500953040272" expanded="true" signature="2927:2998" ph="UPDATE espec... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin/aulas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="847">
+          <caret line="271" column="92" lean-forward="false" selection-start-line="271" selection-start-column="92" selection-end-line="271" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/controllerprofesores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/controlleraula.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin/crearacudiente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6715">
+          <caret line="488" column="48" lean-forward="false" selection-start-line="488" selection-start-column="48" selection-end-line="488" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin/Cursos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="60" column="46" lean-forward="true" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classcursos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <marker date="1500960215629" expanded="true" signature="2241:2261" ph="SELECT * FRO... cursos" />
+            <marker date="1500960215629" expanded="true" signature="2412:2453" ph="INSERT INTO cursos... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin/crearprofesor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="203" column="0" lean-forward="true" selection-start-line="194" selection-start-column="36" selection-end-line="203" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/admin/crearalumno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="258" column="88" lean-forward="true" selection-start-line="258" selection-start-column="88" selection-end-line="258" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/controlleralumno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/db_abstract_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="78" column="41" lean-forward="true" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/classalumno.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding>
+            <marker date="1500961059790" expanded="true" signature="1412:1478" ph="INSERT INTO estudiante... " />
+          </folding>
         </state>
       </provider>
     </entry>

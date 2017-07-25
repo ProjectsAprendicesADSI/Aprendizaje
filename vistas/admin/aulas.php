@@ -256,14 +256,25 @@
                                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                                     <thead>
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
+                                                        <th>Nombre</th>
+                                                        <th>Estado</th>
+
+
                                                     </tr>
                                                     </thead>
+                                                    <tbody>
+                                                    <?php
+                                                    $arrcurso = classaula::getAll();
+                                                    foreach ($arrcurso as $curso){
+                                                        ?>
+                                                        <tr>
+                                                            <td><?php echo $curso->getNombre(); ?></td>
+                                                            <td><?php echo $curso->getEstado(); ?></td>
+
+                                                        </tr>
+                                                    <?php } ?>
+
+                                                    </tbody>
                                                 </table>
 
                                             </div>
