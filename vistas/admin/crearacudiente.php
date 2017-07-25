@@ -485,8 +485,8 @@
 <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../assets/plugins/waypoints/waypoints.min.js"></script>
 <script src="../../assets/js/application.js"></script>
-<script src="../../assets/plugins/dataTables/js/jquery.dataTables.js"></script>
-<script src="../../assets/plugins/dataTables/js/dataTables.bootstrap.js"></script>
+<script src="../../assets/plugins/dataTables/js1/jquery.dataTables.js"></script>
+<script src="../../assets/plugins/dataTables/js1/dataTables.bootstrap.js"></script>
 <script>
 $(document).ready(function() {
 $('#example').dataTable();

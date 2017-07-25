@@ -1,4 +1,4 @@
-CREATE datebase colegio;
+CREATE DATABASE colegio;
 use colegio;
 
 CREATE TABLE IF NOT EXISTS `Profesor` (
@@ -16,12 +16,18 @@ CREATE TABLE IF NOT EXISTS `Profesor` (
   UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC))
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `aula` (
+ `idaula` INT NOT NULL AUTO_INCREMENT,
+  `nomre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idaula`))
+ENGINE = InnoDB;
+
 CREATE TABLE IF NOT EXISTS `cursos` (
   `idcursos` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `jornada` ENUM('manhana', 'tarde') NOT NULL,
    `aula` INT NOT NULL ,
-  PRIMARY KEY (`idcursos`,`aula`)
+  PRIMARY KEY (`idcursos`,`aula`),
   CONSTRAINT `fk_aula_cursos1`
     FOREIGN KEY (`aula`)
     REFERENCES `aula` (`idaula`))
@@ -103,16 +109,9 @@ CREATE TABLE IF NOT EXISTS `acudiente` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS `aula` (
- `idaula` INT NOT NULL AUTO_INCREMENT,
-  `nomre` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idaula`),
-  CONSTRAINT `fk_aula_cursos1`
-    FOREIGN KEY (`cursos_idcursos`)
-    REFERENCES `cursos` (`idcursos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
+
+
 CREATE TABLE IF NOT EXISTS `trabajos` (
   `idtrabajos` INT NOT NULL AUTO_INCREMENT,
   `trabajo` INT NOT NULL,

@@ -31,7 +31,8 @@ class controlleraula
             $aula->insertar();
             header('Location: ../vistas/admin/aulas.php?respuesta=correcto' );
         } catch (Exception $e) {
-           // header("Location: ../vistas/admin/aulas.php?respuesta=error");
+
+            header("Location: ../vistas/admin/aulas.php?respuesta=error");
 
         }
     }

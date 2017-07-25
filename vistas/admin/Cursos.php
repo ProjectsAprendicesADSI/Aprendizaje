@@ -1,9 +1,9 @@
 <?php require('../../clases/classaula.php')  ?>
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <!DOCTYPE html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -104,7 +104,7 @@
                             <a href="#"><i class="fa fa-envelope"></i> mensajes <span class="badge badge-danager" id="user-inbox">2</span></a>
                         </li>
                         <li>
-                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            <a href="pages-login.html"><i class="fa fa-power-off"></i> cerrar sesion</a>
                         </li>
                     </ul>
                 </li>
@@ -162,7 +162,6 @@
 
 
 
-
     <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
@@ -190,11 +189,10 @@
                                 <li><a href="#profile1" data-toggle="tab">listar</a>
                                 </li>
                             </ul>
-                        </div>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home1">
                                     <form class="form-horizontal" role="form" method="post" action='../../controladores/controllercursos.php?action=crear' novalidate>
-                                        <!--__________________________________ confirmar el estado  ------------------>
+                                        <!--__________________________________ Tipo de documento ------------------>
 
 
                                         <div class="form-group">
@@ -208,7 +206,6 @@
                                                         <strong>El curso </strong> no se pudo registrar por favor intente de nuevo.</div>
                                                 <?php } ?>
                                             <?php } ?>
-                                        </div>
                                             <!--__________________________________ nombre ------------------>
 
                                             <div class="form-group">
@@ -217,17 +214,7 @@
                                                     <input type="text"  class="form-control" name="Nombre" id="Nombre" required="" placeholder="Nombre" >
                                                 </div>
                                             </div>
-                                        <!------------------------------jornada ------------------------------>
-                                        <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">Jornada</label>
-                                            <div class="col-sm-6">
-                                                <select  class="form-control" name="Jornada" id="Jornada" required="">
-                                                    <option value="null" selected>Seleccione...</option>
-                                                    <option value="manhana">mañana</option>
-                                                    <option value="tarde">tarde</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                             <!--__________________________________ Estado ------------------>
 
                                             <div class="form-group">
@@ -240,8 +227,22 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <!--______________________________________aula________________________-->
-                                            <?php echo(classaula::selectaulas(true ,"aula" ,"aula","form-control"));?>
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">Jornada</label>
+                                                <div class="col-sm-6">
+                                                    <select  class="form-control" name="Jornada" id="Jornada" required="">
+                                                        <option value="null" selected>Seleccione...</option>
+                                                        <option value="manhana">mañana</option>
+                                                        <option value="tarde">tarde</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail2" class="col-sm-2 control-label">aula</label>
+                                                <div class="col-sm-6">
+                                                    <?php echo(classaula::selectaulas(true ,"Aula" ,"Aula","form-control"));?>
+                                                </div>
+                                            </div>
 
 
                                             <div class="form-group">
@@ -251,12 +252,10 @@
                                                 </div>
                                             </div>
 
-
-
                                     </form>
 
-                        </div>
-                    </div>
+                                </div>
+                            </div>
                             <div class="tab-pane" id="profile1">
 
                                 <div class="row">
@@ -288,15 +287,16 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+                <!--__________________________________ inicio del formulario ------------------>
+
+
             </div>
             </div>
 
@@ -313,8 +313,8 @@
 <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../assets/plugins/waypoints/waypoints.min.js"></script>
 <script src="../../assets/js/application.js"></script>
-<script src="../../assets/plugins/dataTables/js/jquery.dataTables.js"></script>
-<script src="../../assets/plugins/dataTables/js/dataTables.bootstrap.js"></script>
+<script src="../../assets/plugins/dataTables/js1/jquery.dataTables.js"></script>
+<script src="../../assets/plugins/dataTables/js1/dataTables.bootstrap.js"></script>
 <script>
     $(document).ready(function() {
         $('#example').dataTable();

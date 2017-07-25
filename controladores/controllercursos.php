@@ -2,6 +2,7 @@
 require_once (__DIR__.'/../clases/classcursos.php');
 
 if(!empty($_GET['action'])){
+    echo $_GET['action'];
     controllercursos::main($_GET['action']);
 }else{
     echo "No se encontro ninguna accion...";
@@ -30,12 +31,14 @@ class controllercursos
             $arraycursos['Nombre'] = $_POST['Nombre'];
             $arraycursos['Estado'] = $_POST['Estado'];
             $arraycursos['Jornada'] = $_POST['Jornada'];
-            $arraycursos['aula'] = $_POST['aula'];
+            $arraycursos['Aula'] = $_POST['Aula'];
             $curso = new classcursos($arraycursos);
             $curso->insertar();
-           header('Location: ../vistas/admin/cursos.php?respuesta=correcto' );
+
+            header('Location: ../vistas/admin/cursos.php?respuesta=correcto' );
         } catch (Exception $e) {
             header("Location: ../vistas/admin/cursos.php?respuesta=error");
+
         }
     }
         }

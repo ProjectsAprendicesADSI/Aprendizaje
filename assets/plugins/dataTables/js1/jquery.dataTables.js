@@ -10538,7 +10538,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "siguiente",
 	
 	
 				/**
@@ -10561,7 +10561,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "anterior"
 			},
 	
 			/**
@@ -10616,7 +10616,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "mostrando de _START_ a _END_ de _TOTAL_ registros",
 	
 	
 			/**
@@ -10857,7 +10857,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Buscar:",
 	
 	
 			/**
