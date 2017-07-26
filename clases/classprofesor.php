@@ -12,7 +12,7 @@ class classprofesor extends db_abstract_class
     private $Telefono;
     private $Telefono2;
     private $Usuario;
-    private $Contrasenha;
+    private $Pass;
 
 
     public function __construct($alumno_data = array())
@@ -32,7 +32,7 @@ class classprofesor extends db_abstract_class
                 $this->Telefono= "";
                 $this->Telefono2= "";
                 $this->Usuario= "";
-                $this->Contrasenha= "";
+                $this->Pass= "";
 
 
         }
@@ -61,6 +61,10 @@ $arrprofe=classprofesor::ultimoprofe();
 return $htmldiv;
 
     }
+
+
+
+
     protected static function buscarForId($id)
     {
         $profesor = new classprofesor();
@@ -75,7 +79,7 @@ return $htmldiv;
             $profesor->Telefono = $getrow['Telefono'];
             $profesor->Telefono2 = $getrow['Telefono2'];
             $profesor->Usuario = $getrow['Usuario'];
-            $profesor->Contrasenha = $getrow['Contraseha'];
+            $profesor->Pass = $getrow['Contraseha'];
             $profesor->Disconnect();
             return $profesor;
         }else{
@@ -100,7 +104,7 @@ return $htmldiv;
             $profesor->Telefono = $valor['Telefono'];
             $profesor->Telefono2 = $valor['Telefono2'];
             $profesor->Usuario = $valor['Usuario'];
-            $profesor->Contrasenha = $valor['Contraseha'];
+            $profesor->Pass = $valor['Contraseha'];
             array_push($arrprofesor, $profesor);
         }
         $tmp->Disconnect();
@@ -124,7 +128,7 @@ return $htmldiv;
                 $this->Telefono,
                 $this->Telefono2,
                 $this->Usuario,
-                $this->Contrasenha,
+                $this->Pass,
             )
         );
         $this->Disconnect();
@@ -141,7 +145,7 @@ return $htmldiv;
             $this->Telefono,
             $this->Telefono2,
             $this->Usuario,
-            $this->Contrasenha,
+            $this->Pass,
         ));
         $this->Disconnect();
     }
@@ -304,17 +308,17 @@ return $htmldiv;
     /**
      * @return mixed
      */
-    public function getContrasenha()
+    public function getPass()
     {
-        return $this->Contrasenha;
+        return $this->Pass;
     }
 
     /**
-     * @param mixed $Contrasenha
+     * @param mixed $Pass
      */
-    public function setContrasenha($Contrasenha)
+    public function setPass($Pass)
     {
-        $this->Contrasenha = $Contrasenha;
+        $this->Pass = $Pass;
     }
 
 }

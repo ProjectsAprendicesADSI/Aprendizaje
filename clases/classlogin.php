@@ -1,6 +1,6 @@
 <?php
-
 require_once ('db_abstract_class.php');
+require ("classprofesor.php");
 
 /**
  * Created by PhpStorm.
@@ -12,9 +12,33 @@ class classlogin extends db_abstract_class
 {
     private $tipousu;
     private $usuario;
-    private $contraenha;
+    private $pass;
+
+    public function __construct($Asignatura_data = array())
+    {
+
+        parent::__construct(); //Llama al contructor padre "la clase conexion" para conectarme a la BD
+        if(count($Asignatura_data)>1){ //
+            foreach ($Asignatura_data as $campo => $valor){
+                $this->$campo = $valor;
+            }
+        }else {
+            $this->tipousu = "";
+            $this->usuario = "";
+            $this->pass = "";
+        }
+    }
+    public  function validar(){
 
 
+                $inicio=classprofesor::buscar('SELECT * FROM profesor  where Usuario  = \' '.$this->usuario.'\' and Contraseha = \' '.$this->pass.'\'');
+                if(count($inicio) > 0){
+                    header('Location: ../vistas/profesor/inicioprofe.php' );
+                }else{
+               var_dump($inicio);
+                }
+
+    }
 
     protected static function buscarForId($id)
     {
@@ -23,7 +47,7 @@ class classlogin extends db_abstract_class
 
     protected static function buscar($query)
     {
-        // TODO: Implement buscar() method.
+
     }
 
     protected static function getAll()
@@ -80,17 +104,17 @@ class classlogin extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getContraenha()
+    public function getPass()
     {
-        return $this->contraenha;
+        return $this->pass;
     }
 
     /**
-     * @param mixed $contraenha
+     * @param mixed $pass
      */
-    public function setContraenha($contraenha)
+    public function setPass($pass)
     {
-        $this->contraenha = $contraenha;
+        $this->pass = $pass;
     }
 
 }

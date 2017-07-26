@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69074820-3966-41b6-8b63-7e1554420ebc" name="Default" comment="">
+<<<<<<< Updated upstream
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clases/classacudiente.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controladores/controlleracudiente.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vistas/admin/acudiente.php" />
@@ -14,6 +15,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/controlleralumno.php" afterPath="$PROJECT_DIR$/controladores/controlleralumno.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controladores/controllercursos.php" afterPath="$PROJECT_DIR$/controladores/controllercursos.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistas/admin/crearalumno.php" afterPath="$PROJECT_DIR$/vistas/admin/crearalumno.php" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="C:\MAMP\htdocs\Aprendizaje\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -33,8 +37,13 @@
       <file leaf-file-name="classacudiente.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clases/classacudiente.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+            <state relative-caret-position="68">
+              <caret line="200" column="34" lean-forward="true" selection-start-line="200" selection-start-column="34" selection-end-line="200" selection-end-column="34" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -53,8 +62,36 @@
       <file leaf-file-name="bd.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bd.txt">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="480">
               <caret line="117" column="56" lean-forward="true" selection-start-line="117" selection-start-column="56" selection-end-line="117" selection-end-column="56" />
+=======
+            <state relative-caret-position="1836">
+              <caret line="108" column="7" lean-forward="false" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+              <folding>
+                <marker date="1500960215629" expanded="true" signature="2241:2261" ph="SELECT * FRO... cursos" />
+                <marker date="1500960215629" expanded="true" signature="2412:2453" ph="INSERT INTO cursos... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crearacudiente.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/admin/crearacudiente.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8296">
+              <caret line="488" column="48" lean-forward="false" selection-start-line="488" selection-start-column="48" selection-end-line="488" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crearprofesor.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/admin/crearprofesor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3451">
+              <caret line="203" column="0" lean-forward="false" selection-start-line="194" selection-start-column="36" selection-end-line="203" selection-end-column="0" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -63,8 +100,25 @@
       <file leaf-file-name="acudiente.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vistas/admin/acudiente.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="90">
               <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+=======
+            <state relative-caret-position="1411">
+              <caret line="83" column="5" lean-forward="false" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+              <folding>
+                <marker date="1500961059790" expanded="true" signature="1412:1478" ph="INSERT INTO estudiante... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_abstract_class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clases/db_abstract_class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1326">
+              <caret line="78" column="41" lean-forward="false" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -150,8 +204,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+>>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -244,6 +301,11 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< Updated upstream
+=======
+      <pane id="Scope" />
+      <pane id="Scratches" />
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,8 +412,13 @@
       <workItem from="1500858145230" duration="5609000" />
       <workItem from="1500873456325" duration="5428000" />
       <workItem from="1500944306442" duration="15715000" />
+<<<<<<< Updated upstream
       <workItem from="1501010091687" duration="285000" />
       <workItem from="1501012209014" duration="165000" />
+=======
+      <workItem from="1501010091687" duration="507000" />
+      <workItem from="1501029657254" duration="247000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="materias">
       <created>1500860828203</created>
@@ -374,11 +441,22 @@
       <option name="project" value="LOCAL" />
       <updated>1501010169126</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="tarde">
+      <created>1501010531793</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501010531793</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="33937000" />
+=======
+    <option name="totallyTimeSpent" value="28635000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,6 +468,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
@@ -401,6 +480,28 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+=======
+    <frame x="-7" y="-7" width="1380" height="742" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27382752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -434,7 +535,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="addbd" />
     <MESSAGE value="materias" />
-    <option name="LAST_COMMIT_MESSAGE" value="materias" />
+    <MESSAGE value="tarde" />
+    <option name="LAST_COMMIT_MESSAGE" value="tarde" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -447,7 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
           <caret line="105" column="49" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -479,7 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3179">
           <caret line="187" column="73" lean-forward="true" selection-start-line="187" selection-start-column="73" selection-end-line="187" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -532,7 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1751">
           <caret line="103" column="28" lean-forward="true" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -540,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1717">
           <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,9 +754,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controllermaterias.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="17">
           <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
           <folding />
+=======
+        <state relative-caret-position="-2198">
+          <caret line="105" column="49" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -713,9 +815,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/admin/Materias.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="515">
           <caret line="258" column="84" lean-forward="false" selection-start-line="258" selection-start-column="84" selection-end-line="258" selection-end-column="84" />
           <folding />
+=======
+        <state relative-caret-position="2210">
+          <caret line="301" column="45" lean-forward="false" selection-start-line="301" selection-start-column="45" selection-end-line="301" selection-end-column="45" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -723,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="192" column="71" lean-forward="true" selection-start-line="192" selection-start-column="71" selection-end-line="192" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -737,9 +843,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controlleraula.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="510">
           <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
           <folding />
+=======
+        <state relative-caret-position="847">
+          <caret line="271" column="92" lean-forward="false" selection-start-line="271" selection-start-column="92" selection-end-line="271" selection-end-column="92" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -822,24 +933,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controlleralumno.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="630">
           <caret line="42" column="26" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="1" />
           <folding />
+=======
+        <state relative-caret-position="1411">
+          <caret line="83" column="5" lean-forward="false" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <marker date="1500961059790" expanded="true" signature="1412:1478" ph="INSERT INTO estudiante... " />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controladores/controlleracudiente.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="690">
           <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
           <folding />
+=======
+        <state relative-caret-position="1836">
+          <caret line="108" column="7" lean-forward="false" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+          <folding>
+            <marker date="1500960215629" expanded="true" signature="2241:2261" ph="SELECT * FRO... cursos" />
+            <marker date="1500960215629" expanded="true" signature="2412:2453" ph="INSERT INTO cursos... " />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bd.txt">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="480">
           <caret line="117" column="56" lean-forward="true" selection-start-line="117" selection-start-column="56" selection-end-line="117" selection-end-column="56" />
+=======
+        <state relative-caret-position="68">
+          <caret line="200" column="34" lean-forward="true" selection-start-line="200" selection-start-column="34" selection-end-line="200" selection-end-column="34" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>

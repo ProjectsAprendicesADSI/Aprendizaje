@@ -48,33 +48,33 @@
                     </div>
                     <div class="panel-body">
                        <p>Ingrese los datos para acceder a su cuenta</p>
-                        <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php" method="post">
+                        <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php?action=inicio" method="post">
                             <div class="form-group">
                                     <label class="col-sm-10 ">Tipo de usuario</label>
                                     <div class="col-sm-12">
                                         <label class="radio-inline">
-                                            <input class="icheck" type="radio" checked="" name="rad1">Profesor</label>
+                                            <input class="icheck" type="radio" checked="" value="profesor" name="tipo">Profesor</label>
                                         <label class="radio-inline">
-                                            <input class="icheck" type="radio" name="rad1">Estudiante</label>
+                                            <input class="icheck" type="radio" value="estudiante" name="tipo">Estudiante</label>
                                         <label class="radio-inline">
-                                            <input class="icheck" type="radio" name="rad1">acudiente</label>
+                                            <input class="icheck" type="radio" value="acudiente" name="tipo">acudiente</label>
                                     </div>
                                 </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="email" class="form-control" id="email" placeholder="usuario">
+                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
                                     <i class="fa fa-user"></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                <div class="col-md-12">
-                                    <input type="password" class="form-control" id="password" placeholder="contraseña">
+                                    <input type="password" class="form-control" id="pass" name="pass" placeholder="contraseña">
                                     <i class="fa fa-lock"></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                <div class="col-md-12">
-                                    <a href="inicio.html" class="btn btn-primary btn-block">Ingresar</a>
+                                    <input type="submit" class="btn btn-primary btn-block" value="ingresar">
                                     <hr />
                                     <a href="pages-sign-up.html" class="btn btn-default btn-block">olvidaste tu contraseña</a>
                                 </div>
