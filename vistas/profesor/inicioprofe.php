@@ -115,7 +115,7 @@ foreach ($profe as $valor){
 
                         <li><a href="trabajo.php">Crear</a>
                         </li>
-                        <li><a href="crearacudiente.php">calificar</a>
+                        <li><a href=".php">calificar</a>
                         </li>
                     </ul>
                 </li>

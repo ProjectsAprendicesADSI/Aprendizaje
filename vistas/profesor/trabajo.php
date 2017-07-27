@@ -152,13 +152,15 @@ foreach ($profe as $valor){
                 </div>
                 <!--breadcrumbs end -->
                 <h1 class="h1">Inicio Profesor</h1>
-                <div class="col-md-3 col-sm-6">
-                    <div class="dashboard-tile detail tile-red">
+                <div class="form-group">
+                    <label for="inputEmail2" class="col-sm-2 control-label">hora</label>
+                    <div class="col-sm-6">
 
-                        <div class="icon"><i class="fa fa-users"></i>
-                        </div>
                     </div>
                 </div>
+
+
+
             </div>
         </section>
     </section>
