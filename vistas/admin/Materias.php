@@ -1,3 +1,9 @@
+<?php session_start();
+if(isset($_SESSION['inicio'])){
+
+    ?>
+    <?php require_once('../../clases/classprofesor.php') ?>
+    <?php require_once('../../clases/classlogin.php') ?>
 <?php require('../../clases/classmaterias.php')?>
 
 <!DOCTYPE html>
@@ -34,89 +40,71 @@
 </head>
 <body>
 <section id="container">
-    <header id="header">
-        <!--logo start-->
-        <div class="brand">
-            <a href="../inicio.html" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
-        </div>
-        <!--logo end-->
-        <div class="toggle-navigation toggle-left">
-            <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" title="Menu de navegacion">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-        <div class="user-nav">
-            <ul>
-                <li class="dropdown messages">
-                    <span class="badge badge-danager animated bounceIn" id="new-messages">2</span>
-                    <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail" data-toggle="dropdown">
-                        <i class="fa fa-envelope"></i>
-                    </button>
-                    <ul class="dropdown-menu alert animated fadeInDown">
-                        <li>
-                            <h1>tienes <strong>2</strong> mensajes nuevos</h1>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="profile-photo">
-                                    <img src="../../assets/img/avatar.gif" alt="" class="img-circle">
-                                </div>
-                                <div class="message-info">
-                                    <span class="sender">jose Robles</span>
-                                    <span class="time">10 mins</span>
-                                    <div class="message-content">hola profe como estas imaginate que ...</div>
-                                </div>
-                            </a>
-                        </li>
 
-                        <li>
-                            <a href="#">
-                                <div class="profile-photo">
-                                    <img src="../../assets/img/avatar1.gif" alt="" class="img-circle">
-                                </div>
-                                <div class="message-info">
-                                    <span class="sender">Jeffrey Ashby</span>
-                                    <span class="time">2 hour</span>
-                                    <div class="message-content">hendrerit pellentesque, iure tincidunt, faucibus vitae dolor aliquam...</div>
-                                </div>
-                            </a>
-                        </li>
+    <?php
 
-                        <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a>
-                        </li>
-                    </ul>
+    session_start();
+    $array =  $_SESSION["inicio"];
+    $usu=$array['usu'];
+    $profe=classprofesor::buscarforusuario($usu);
 
-                </li>
-                <li class="profile-photo">
-                    <img src="../../assets/img/avatar4.gif" alt="" class="img-circle">
-                </li>
-                <li class="dropdown settings">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Mike Adams <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInDown">
-                        <li>
-                            <a href="#  "><i class="fa fa-user"></i> perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-calendar"></i> calendario</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> mensajes <span class="badge badge-danager" id="user-inbox">2</span></a>
-                        </li>
-                        <li>
-                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
-                        </li>
-                    </ul>
-                </li>
+    foreach ($profe as $valor){
+        $idprofesor=$valor->getidprofesor();
+        $Tipodocumento=$valor->getTipodocumento();
+        $Documento=$valor->getDocumento();
+        $Nombre=$valor->getNombre();
+        $Apellido=$valor->getApellido();
+        $Foto=$valor->getFoto();
+        $Telefono;
+        $Telefono2;
+        $Usuario;
+        $Pass;
+    }
+
+    ?>
+    <section id="container">
+        <header id="header">
+            <!--logo start-->
+            <div class="brand">
+                <a href="inicioadmi.php" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
+            </div>
+            <!--logo end-->
+            <div class="toggle-navigation toggle-left">
+                <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" title="Menu de navegacion">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="user-nav">
+                <ul>
+                    <li class="dropdown messages">
+                    </li>
+                    <li class="profile-photo">
+                        <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                    </li>
+                    <li class="dropdown settings">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <?php echo $Nombre ?> <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInDown">
+                            <li>
+                                <a href="perfil.php"><i class="fa fa-user"></i> perfil</a>
+                            </li>
+
+                            <li>
+                                <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </header>
 
 
-            </ul>
-        </div>
-    </header>
 
 
-    <!------------------------ inicio menu derecho-------------------->
+        <!------------------------ inicio menu derecho-------------------->
     <aside class="sidebar">
         <div id="leftside-navigation" class="nano">
             <ul class="nano-content">
@@ -320,10 +308,7 @@
 
 </body>
 </html>
-<?php
-/**
- * Created by PhpStorm.
- * User: camilo
- * Date: 10/07/2017
- * Time: 10:33
- */
+<?php  }
+else{
+    header('Location: ../index.php');
+} ?>

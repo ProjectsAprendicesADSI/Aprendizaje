@@ -1,6 +1,7 @@
 <?php
 require_once ('db_abstract_class.php');
 require_once ("classprofesor.php");
+require_once ("classalumno.php");
 
 /**
  * Created by PhpStorm.
@@ -33,19 +34,29 @@ class classlogin extends db_abstract_class
 
         switch ($this->tipousu){
             case "profesor":
+
                 $arrprofesor = classprofesor::validar($this->usu,$this->pass);
 
                 if (count($arrprofesor) > 0){
+                    if($this->usu=="admin"){
+                        header("Location: ../vistas/admin/inicioadmi.php");
 
+                    }else{
                     header("Location: ../vistas/profesor/inicioprofe.php");
-
+                    }
                 }else {
 
                     header('location:../vistas/index.php?respuesta=error');
                 }
                 break;
             case "estudiante":
-                echo "estidante";
+
+                $arrestudiante=classalumno::validar($this->usu,$this->pass);
+                if (count($arrestudiante)>0){
+                    header("location: ../vistas/estudiente/inicio.php");
+                }else{
+                    header('location:../vistas/index.php?respuesta=error');
+                }
                 break;
             case "acudiente":
                 echo "acudiente";

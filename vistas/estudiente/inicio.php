@@ -1,4 +1,13 @@
+<?php session_start();
+if(isset($_SESSION['inicio'])){
+
+
+?>
+<?php require_once('../../clases/classalumno.php') ?>
+<?php require_once('../../clases/classlogin.php') ?>
+
 <!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -31,6 +40,27 @@
     <![endif]-->
 </head>
 <body>
+<?php
+
+session_start();
+$array =  $_SESSION["inicio"];
+$usu=$array['usu'];
+$profe=classalumno::buscarforusuario($usu);
+
+foreach ($profe as $valor){
+    $Tipodocumento= $valor->getTipodocumento();
+    $Documento= $valor->getDocumento();
+    $Nombre= $valor->getNombre();
+    $Apellido= $valor->getApellido();
+    $Foto= $valor->getFoto();
+    $Telefono= $valor->getTelefono();
+    $Usuario= $valor->getUsuario();
+    $Pass= $valor->getPass();
+    $Edad=$valor->getEdad();
+    $Curso=$valor->getCurso();
+}
+
+?>
 <section id="container">
     <header id="header">
         <!--logo start-->
@@ -45,60 +75,19 @@
         </div>
         <div class="user-nav">
             <ul>
-                <li class="dropdown messages">
-                    <span class="badge badge-danager animated bounceIn" id="new-messages">2</span>
-                    <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail" data-toggle="dropdown">
-                        <i class="fa fa-envelope"></i>
-                    </button>
-                    <ul class="dropdown-menu alert animated fadeInDown">
-                        <li>
-                            <h1>tienes <strong>2</strong> mensajes nuevos</h1>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="profile-photo">
-                                    <img src="../../assets/img/avatar.gif" alt="" class="img-circle">
-                                </div>
-                                <div class="message-info">
-                                    <span class="sender">jose Robles</span>
-                                    <span class="time">10 mins</span>
-                                    <div class="message-content">hola profe como estas imaginate que ...</div>
-                                </div>
-                            </a>
-                        </li>
 
-                        <li>
-                            <a href="#">
-                                <div class="profile-photo">
-                                    <img src="../../assets/img/avatar1.gif" alt="" class="img-circle">
-                                </div>
-                                <div class="message-info">
-                                    <span class="sender">Jeffrey Ashby</span>
-                                    <span class="time">2 hour</span>
-                                    <div class="message-content">hendrerit pellentesque, iure tincidunt, faucibus vitae dolor aliquam...</div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a>
-                        </li>
-                    </ul>
-
-                </li>
                 <li class="profile-photo">
-                    <img src="../../assets/img/avatar4.gif" alt="" class="img-circle">
+                    <img src="<?php echo $Foto ?>" alt="" class="img-circle">
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Mike Adams <i class="fa fa-angle-down"></i>
+                        <?php echo $Nombre ?> <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
                             <a href="#  "><i class="fa fa-user"></i> perfil</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-calendar"></i> calendario</a>
-                        </li>
+
 
                         <li>
                             <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
@@ -172,58 +161,8 @@
                     <h1 class="h1">Registrar Alumno</h1>
                 </div>
                 <div class="panel-body">
-                    <!--__________________________________ inicio del formulario ------------------>
-                    <form class="form-horizontal" role="form">
-                        <!--__________________________________ Tipo de documento ------------------>
+                    <label></label>
 
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">Tipo de documento</label>
-                            <div class="col-sm-6">
-                                <select class="form-control">
-                                    <option value="null" selected>seleccione...</option>
-                                    <option value="cedula">Cedula</option>
-                                    <option value="tipo">tarjeta de identidad</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!--__________________________________ Numero de documeto------------------>
-
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">Numero de documeto</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Numero de documeto">
-                            </div>
-                        </div>
-                        <!--__________________________________ NOmbre ------------------>
-
-                        <div class="form-group">
-                            <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Nombre">
-                            </div>
-                        </div>
-                        <!--__________________________________ Apellido ------------------>
-
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Apellido</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="input1" id="input1" required="" placeholder="Apellido">
-                            </div>
-                        </div>
-                        <!--__________________________________  ------------------>
-                        <div class="form-group">
-                            <label for="input1" class="col-sm-2 control-label">Photo</label>
-                            <div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">enviar</button>
-                            </div>
-                        </div>
-                    </form>
 
                 </div>
             </div>
@@ -252,3 +191,7 @@
 </script>
 </body>
 </html>
+<?php  }
+else{
+    header('Location: ../index.php');
+} ?>

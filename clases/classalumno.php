@@ -54,12 +54,40 @@ class classalumno extends db_abstract_class
 
     protected static function buscar($query)
     {
-        // TODO: Implement buscar() method.
+        $arralumno = array();
+        $tmp = new classalumno();
+        $getrows = $tmp->getRows($query);
+
+        foreach ($getrows as $valor) {
+            $alumno = new classalumno();
+            $alumno->idestudiente = $valor['idalumno'];
+            $alumno->Tipodocumento = $valor['Tipodocumento'];
+            $alumno->Documento = $valor['Documento'];
+            $alumno->Nombre = $valor['Nombre'];
+            $alumno->Apellido = $valor['Apellido'];
+            $alumno->Foto = $valor['Foto'];
+            $alumno->Telefono = $valor['Telefono'];
+            $alumno->Usuario = $valor['Usuario'];
+            $alumno->Pass = $valor['Contraseha'];
+            $alumno->Edad=$valor['Edad'];
+            $alumno->Curso=$valor['curso'];
+            array_push($arralumno, $alumno);
+        }
+        $tmp->Disconnect();
+        return $arralumno;
     }
 
     public static function getAll()
     {
         // TODO: Implement getAll() method.
+    }
+    static public function validar($usu, $cont){
+
+        return classalumno::buscar('SELECT * FROM estudiente WHERE Usuario= "'.$usu.'" AND Pass= "'.$cont.'"');
+    }
+
+    static public function buscarforusuario($qu){
+        return classalumno::buscar('SELECT * FROM estudiente WHERE Usuario= "'.$qu.'" ');
     }
 
     public function insertar()
