@@ -1,6 +1,6 @@
 <?php
 require_once ('db_abstract_class.php');
-require ("classprofesor.php");
+require_once ("classprofesor.php");
 
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ require ("classprofesor.php");
 class classlogin extends db_abstract_class
 {
     private $tipousu;
-    private $usuario;
+    private $usu;
     private $pass;
 
     public function __construct($Asignatura_data = array())
@@ -24,21 +24,36 @@ class classlogin extends db_abstract_class
             }
         }else {
             $this->tipousu = "";
-            $this->usuario = "";
+            $this->usu = "";
             $this->pass = "";
         }
     }
-    public  function validar(){
 
+    public  function casi(){
 
-                $inicio=classprofesor::buscar('SELECT * FROM profesor  where Usuario  = \' '.$this->usuario.'\' and Contraseha = \' '.$this->pass.'\'');
-                if(count($inicio) > 0){
-                    header('Location: ../vistas/profesor/inicioprofe.php' );
-                }else{
-               var_dump($inicio);
+        switch ($this->tipousu){
+            case "profesor":
+                $arrprofesor = classprofesor::validar($this->usu,$this->pass);
+
+                if (count($arrprofesor) > 0){
+
+                    header("Location: ../vistas/profesor/inicioprofe.php");
+
+                }else {
+
+                    header('location:../vistas/index.php?respuesta=error');
                 }
+                break;
+            case "estudiante":
+                echo "estidante";
+                break;
+            case "acudiente":
+                echo "acudiente";
+                break;
+        }
 
     }
+
 
     protected static function buscarForId($id)
     {
@@ -88,17 +103,17 @@ class classlogin extends db_abstract_class
     /**
      * @return mixed
      */
-    public function getUsuario()
+    public function getUsu()
     {
-        return $this->usuario;
+        return $this->usu;
     }
 
     /**
      * @param mixed $usuario
      */
-    public function setUsuario($usuario)
+    public function setUsu($usu)
     {
-        $this->usuario = $usuario;
+        $this->usuario = $usu;
     }
 
     /**

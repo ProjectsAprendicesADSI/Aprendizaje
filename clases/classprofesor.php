@@ -62,9 +62,15 @@ return $htmldiv;
 
     }
 
+    static public function validar($usu, $cont){
+
+       return classprofesor::buscar('SELECT * FROM profesor WHERE Usuario= "'.$usu.'" AND Contraseha= "'.$cont.'"');
+    }
 
 
-
+    static public function buscarforusuario($qu){
+        return classprofesor::buscar('SELECT * FROM profesor WHERE Usuario= "'.$qu.'" ');
+    }
     protected static function buscarForId($id)
     {
         $profesor = new classprofesor();

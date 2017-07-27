@@ -1,4 +1,4 @@
-<?php  ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -42,7 +42,8 @@
             <div class="col-md-3" id="login-wrapper">
                 <div class="panel panel-primary animated flipInY">
                     <div class="panel-heading">
-                        <h3 class="panel-title">     
+                        <h3 class="panel-title">
+
                            Inicio de sesion
                         </h3>      
                     </div>
@@ -50,6 +51,13 @@
                        <p>Ingrese los datos para acceder a su cuenta</p>
                         <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php?action=inicio" method="post">
                             <div class="form-group">
+                                <?php if(!empty($_GET['respuesta'])){ ?>
+                                    <?php if ($_GET['respuesta'] == "error"){ ?>
+                                        <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>el usuario o la contraseña son incorrectos.</div>
+                                    <?php }else {?>
+
+                                    <?php } ?>
+                                <?php } ?>
                                     <label class="col-sm-10 ">Tipo de usuario</label>
                                     <div class="col-sm-12">
                                         <label class="radio-inline">
@@ -62,8 +70,9 @@
                                 </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
                                     <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
+
                                 </div>
                             </div>
                             <div class="form-group">

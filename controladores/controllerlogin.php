@@ -19,11 +19,12 @@ class controllerlogin
        $iniciar= array();
         $tipo=$_POST["tipo"];
         $iniciar["tipousu"]=$_POST['tipo'];
-        $iniciar["usuario"]=$_POST['usuario'];
+        $iniciar["usu"]=$_POST['usuario'];
         $iniciar["pass"]=$_POST['pass'];
-
+        session_start();
+        $_SESSION["inicio"]=$iniciar;
         $login= new classlogin($iniciar);
-       $login->validar();
+       $login->casi();
 
 
 

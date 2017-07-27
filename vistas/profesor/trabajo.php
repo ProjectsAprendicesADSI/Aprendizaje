@@ -1,10 +1,4 @@
-<?php session_start();
-if(isset($_SESSION['inicio'])){
-
-
-?>
-<?php require_once('../../clases/classprofesor.php') ?>
-<?php require_once('../../clases/classlogin.php') ?>
+<?php require('../../clases/classprofesor.php') ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -39,6 +33,7 @@ if(isset($_SESSION['inicio'])){
 </head>
 <body>
 
+
 <?php
 
 session_start();
@@ -47,17 +42,17 @@ $usu=$array['usu'];
 $profe=classprofesor::buscarforusuario($usu);
 
 foreach ($profe as $valor){
- $idprofesor=$valor->getidprofesor();
- $Tipodocumento=$valor->getTipodocumento();
- $Documento=$valor->getDocumento();
- $Nombre=$valor->getNombre();
- $Apellido=$valor->getApellido();
- $Foto=$valor->getFoto();
- $Telefono;
- $Telefono2;
- $Usuario;
- $Pass;
- }
+    $idprofesor=$valor->getidprofesor();
+    $Tipodocumento=$valor->getTipodocumento();
+    $Documento=$valor->getDocumento();
+    $Nombre=$valor->getNombre();
+    $Apellido=$valor->getApellido();
+    $Foto=$valor->getFoto();
+    $Telefono;
+    $Telefono2;
+    $Usuario;
+    $Pass;
+}
 
 ?>
 
@@ -81,11 +76,11 @@ foreach ($profe as $valor){
                 <li class="dropdown messages">
                 </li>
                 <li class="profile-photo">
-                    <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                    <img src="<?php echo $Foto; ?>" alt="" class="img-circle">
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                      <?php echo $Nombre ?> <i class="fa fa-angle-down"></i>
+                        <?php echo $Nombre ?> <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
@@ -113,7 +108,7 @@ foreach ($profe as $valor){
                     <a href="javascript:void(0);"><i class="fa fa-book"></i><span>Trabajos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
 
-                        <li><a href="trabajo.php">Crear</a>
+                        <li><a href="trabajo.php?u=<?php echo $Usuario ?>">Crear</a>
                         </li>
                         <li><a href="crearacudiente.php">calificar</a>
                         </li>
@@ -123,7 +118,7 @@ foreach ($profe as $valor){
                     <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
 
-                        <li><a href="Cursos.php?">Cursos</a>
+                        <li><a href="Cursos.php" >Cursos</a>
                         </li>
 
                         </li>
@@ -156,7 +151,7 @@ foreach ($profe as $valor){
                         </li></ul>
                 </div>
                 <!--breadcrumbs end -->
-                <h1 class="h1">inicio</h1>
+                <h1 class="h1">Inicio Profesor</h1>
                 <div class="col-md-3 col-sm-6">
                     <div class="dashboard-tile detail tile-red">
 
@@ -189,9 +184,3 @@ foreach ($profe as $valor){
 </script>
 </body>
 </html>
-<?php
-    }
-    else{
-      header('Location: ../index.php');
-    }
-    ?>
