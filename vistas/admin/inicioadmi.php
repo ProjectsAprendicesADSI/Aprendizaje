@@ -41,10 +41,11 @@ if(isset($_SESSION['inicio'])){
 
 <?php
 
-session_start();
 $array =  $_SESSION["inicio"];
 $usu=$array['usu'];
+
 $profe=classprofesor::buscarforusuario($usu);
+if (count($profe)>0 && ($usu =="admin")){
 
 foreach ($profe as $valor){
     $idprofesor=$valor->getidprofesor();
@@ -57,6 +58,9 @@ foreach ($profe as $valor){
     $Telefono2;
     $Usuario;
     $Pass;
+}}
+else{
+    header('Location: ../4042.html');
 }
 
 ?>
@@ -78,7 +82,7 @@ foreach ($profe as $valor){
                 <li class="dropdown messages">
                 </li>
                 <li class="profile-photo">
-                    <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                    <img src="<?php echo $Foto ?>" style="max-height: 50px ; max-width: 50px" alt="" class="img-circle">
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -90,7 +94,7 @@ foreach ($profe as $valor){
                         </li>
 
                         <li>
-                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                         </li>
                     </ul>
                 </li>
@@ -107,43 +111,34 @@ foreach ($profe as $valor){
             <ul class="nano-content">
 
                 <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="crearalumno.php">Alumno</a>
-                        </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-                        <li><a href="aulas.php">Aulas</a
-                        </li>
-
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
-                        </li>
-
+                        <li><a href="Materias.php">Asignaturas</a></li>
                     </ul>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+
+
+                    <ul>
+                        <li><a href="aulas.php">Aulas</a
+                        </li>
+                        <li><a href="Cursos.php">Cursos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <ul>
+                        <li><a href="crearalumno.php">Alumno</a></li>
+                        <li><a href="crearprofesor.php">Profesor</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </aside>
-
     <!------------------------ fin menu derecho-------------------->
 
 
@@ -155,9 +150,9 @@ foreach ($profe as $valor){
                 <div class="col-md-12">
                     <!--breadcrumbs start -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Persona</a>
+                        <li><a href="#">Administrador</a>
                         </li>
-                        <li class="active">registrar alumno</li>
+                        <li class="active">Inicio</li>
 
                     </ul>
                     <!--breadcrumbs end -->
@@ -199,5 +194,6 @@ foreach ($profe as $valor){
 </html>
 <?php  }
 else{
-    header('Location: ../index.php');
+    header('Location: ../404.html');
+
 } ?>

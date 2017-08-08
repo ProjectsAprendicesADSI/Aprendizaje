@@ -36,7 +36,7 @@ class controllercursos
 
             header('Location: ../vistas/admin/cursos.php?respuesta=correcto' );
         } catch (Exception $e) {
-            header("Location: ../vistas/admin/cursos.php?respuesta=error");
+           // header("Location: ../vistas/admin/cursos.php?respuesta=error");
 
         }
     }

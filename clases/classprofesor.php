@@ -24,15 +24,16 @@ class classprofesor extends db_abstract_class
                 $this->$campo = $valor;
             }
         }else {
+            $this->idprofesor="";
             $this->Tipodocumento= "";
-                $this->Documento= "";
-                $this->Nombre= "";
-                $this->Apellido= "";
-                $this->Foto= "";
-                $this->Telefono= "";
-                $this->Telefono2= "";
-                $this->Usuario= "";
-                $this->Pass= "";
+            $this->Documento= "";
+            $this->Nombre= "";
+            $this->Apellido= "";
+            $this->Foto= "";
+            $this->Telefono= "";
+            $this->Telefono2= "";
+            $this->Usuario= "";
+            $this->Pass= "";
 
 
         }
@@ -40,15 +41,14 @@ class classprofesor extends db_abstract_class
     static public function ultimo($required, $id , $name , $class){
 $arrprofe= new classprofesor();
 $arrprofe=classprofesor::ultimoprofe();
+session_start();
+
 
 
         $htmldiv="<div class=\"panel panel-success\">
                         <div class=\"panel-heading\">
                             <h3 class=\"panel-title\">Profesor</h3>
-                            <div class=\"actions pull-right\">
-                                <i class=\"fa fa-chevron-down\"></i>
-                                <i class=\"fa fa-times\"></i>
-                            </div>
+                            
                         </div>
                         <div class=\"panel-body\">
                             <h3>".$arrprofe->Nombre."  ". $arrprofe->Apellido."</h3>
@@ -58,20 +58,21 @@ $arrprofe=classprofesor::ultimoprofe();
                     </div>
                                         
                                         </div>";
+        $_SESSION['id']=$arrprofe->idprofesor;
 return $htmldiv;
 
     }
 
     static public function validar($usu, $cont){
 
-       return classprofesor::buscar('SELECT * FROM profesor WHERE Usuario= "'.$usu.'" AND Contraseha= "'.$cont.'"');
+       return classprofesor::buscar('SELECT * FROM profesor WHERE Usuario= "'.$usu.'" AND Pass= "'.$cont.'"');
     }
 
 
     static public function buscarforusuario($qu){
         return classprofesor::buscar('SELECT * FROM profesor WHERE Usuario= "'.$qu.'" ');
     }
-    protected static function buscarForId($id)
+    public static function buscarForId($id)
     {
         $profesor = new classprofesor();
         if ($id > 0){
@@ -85,7 +86,7 @@ return $htmldiv;
             $profesor->Telefono = $getrow['Telefono'];
             $profesor->Telefono2 = $getrow['Telefono2'];
             $profesor->Usuario = $getrow['Usuario'];
-            $profesor->Pass = $getrow['Contraseha'];
+            $profesor->Pass = $getrow['Pass'];
             $profesor->Disconnect();
             return $profesor;
         }else{
@@ -110,7 +111,7 @@ return $htmldiv;
             $profesor->Telefono = $valor['Telefono'];
             $profesor->Telefono2 = $valor['Telefono2'];
             $profesor->Usuario = $valor['Usuario'];
-            $profesor->Pass = $valor['Contraseha'];
+            $profesor->Pass = $valor['Pass'];
             array_push($arrprofesor, $profesor);
         }
         $tmp->Disconnect();
@@ -142,7 +143,8 @@ return $htmldiv;
 
     public function editar()
     {
-        $this->updateRow("UPDATE profesor SET Tipodocumento = ?, Documento = ?, Nombre = ?, Apellido = ?, Foto = ?, Telefono = ?, Telefono2 = ?, Usuario = ?, Contrasenha = ?, WHERE idEspecialidad = ?", array(
+
+        $this->updateRow("UPDATE profesor SET Tipodocumento = ?, Documento = ?, Nombre = ?, Apellido = ?, Foto = ?, Telefono = ?, Telefono2 = ?, Usuario = ?, Pass = ? WHERE idprofesor = ?  ", array(
             $this->Tipodocumento,
             $this->Documento,
             $this->Nombre,
@@ -152,6 +154,7 @@ return $htmldiv;
             $this->Telefono2,
             $this->Usuario,
             $this->Pass,
+            $this->idprofesor,
         ));
         $this->Disconnect();
     }

@@ -45,7 +45,8 @@ class classlogin extends db_abstract_class
                     header("Location: ../vistas/profesor/inicioprofe.php");
                     }
                 }else {
-
+                        session_start();
+                        session_destroy();
                     header('location:../vistas/index.php?respuesta=error');
                 }
                 break;
@@ -55,6 +56,8 @@ class classlogin extends db_abstract_class
                 if (count($arrestudiante)>0){
                     header("location: ../vistas/estudiente/inicio.php");
                 }else{
+                    session_start();
+                    session_destroy();
                     header('location:../vistas/index.php?respuesta=error');
                 }
                 break;

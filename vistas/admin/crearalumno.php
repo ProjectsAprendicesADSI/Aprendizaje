@@ -3,10 +3,11 @@ if(isset($_SESSION['inicio'])){
 
 
 ?>
-<?php require_once('../../clases/classprofesor.php') ?>
-<?php require_once('../../clases/classlogin.php') ?>
-<?php require('../../clases/classcursos.php') ?>
-<?php require('../../clases/classalumno.php') ?>
+<?php require('../../clases/classprofesor.php');
+require('../../clases/classlogin.php');
+ require('../../clases/classcursos.php');
+ ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -44,10 +45,10 @@ if(isset($_SESSION['inicio'])){
 
     <?php
 
-    session_start();
     $array =  $_SESSION["inicio"];
     $usu=$array['usu'];
     $profe=classprofesor::buscarforusuario($usu);
+    if (count($profe)>0 && ($usu =="admin")){
 
     foreach ($profe as $valor){
         $idprofesor=$valor->getidprofesor();
@@ -60,7 +61,10 @@ if(isset($_SESSION['inicio'])){
         $Telefono2;
         $Usuario;
         $Pass;
-    }
+    }}
+else{
+    header('Location: ../4042.html');
+}
 
     ?>
     <section id="container">
@@ -81,7 +85,7 @@ if(isset($_SESSION['inicio'])){
                     <li class="dropdown messages">
                     </li>
                     <li class="profile-photo">
-                        <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                        <img src="<?php echo $Foto ?>" alt="" style="max-height: 50px ; max-width: 50px" class="img-circle">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -93,7 +97,7 @@ if(isset($_SESSION['inicio'])){
                             </li>
 
                             <li>
-                                <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                                <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
@@ -102,68 +106,59 @@ if(isset($_SESSION['inicio'])){
             </div>
         </header>
 
-
         <!------------------------ inicio menu derecho-------------------->
-    <aside class="sidebar">
-        <div id="leftside-navigation" class="nano">
-            <ul class="nano-content">
+        <aside class="sidebar">
+            <div id="leftside-navigation" class="nano">
+                <ul class="nano-content">
 
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="Materias.php">Asignaturas</a></li>
+                        </ul>
+                    </li>
 
-                        <li><a href="crearalumno.php">Alumno</a>
-                        </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
-                        </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
 
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-                        <li><a href="aulas.php">Aulas</a
-                        </li>
+                        <ul>
+                            <li><a href="aulas.php">Aulas</a
+                            </li>
+                            <li><a href="Cursos.php">Cursos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="crearalumno.php">Alumno</a></li>
+                            <li><a href="crearprofesor.php">Profesor</a></li>
+                        </ul>
+                    </li>
 
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
-                        </li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <!------------------------ fin menu derecho-------------------->
+                </ul>
+            </div>
+        </aside>
+        <!------------------------ fin menu derecho-------------------->
 
 
 
-    <!--main content start-->
+
+        <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
             <div class="row">
                 <div class="col-md-12">
                     <!--breadcrumbs start -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Persona</a>
+                        <li><a href="#">Administrador</a>
                         </li>
-                        <li class="active">Asignaturas</li>
+                        <li class="active">Alumno</li>
 
                     </ul>
                     <!--breadcrumbs end -->
-                    <h1 class="h1">Acudiente</h1>
+                    <h1 class="h1">Alumno</h1>
                 </div>
                 <div class="panel-body">
 
@@ -212,7 +207,7 @@ if(isset($_SESSION['inicio'])){
                                             <div class="form-group">
                                                 <label for="inputEmail2" class="col-sm-2 control-label">Numero de documeto</label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" name="Documento" id="Documento" required="" placeholder="Numero de documeto">
+                                                    <input type="number" class="form-control" name="Documento" id="Documento" required="" placeholder="Numero de documeto">
                                                 </div>
                                             </div>
 
@@ -251,13 +246,7 @@ if(isset($_SESSION['inicio'])){
                                                 </div>
                                             </div>
 
-                                            <!--__________________________________ contraseña ------------------>
-                                            <div class="form-group">
-                                                <label for="inputPassword3" class="col-sm-2 control-label">contraseña</label>
-                                                <div class="col-sm-6">
-                                                    <input type="password" class="form-control" name="Pass" id="Pass" required="" placeholder="contraseña">
-                                                </div>
-                                            </div>
+
 
                                             <!--__________________________________edad    ------------------>
                                             <div class="form-group">
@@ -292,29 +281,52 @@ if(isset($_SESSION['inicio'])){
 
                             <div class="tab-pane" id="profile1">
 
-                                <div class="row">
-                                    <div class="col-md-15">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Acudientes</h3>
-                                                <div class="actions pull-right">
-                                                    <i class="fa fa-chevron-down"></i>
-                                                    <i class="fa fa-times"></i>
+
+
+                                    <div class="row">
+                                        <div class="col-md-15">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Aulas</h3>
+
                                                 </div>
-                                            </div>
-                                            <div class="panel-body">
-                                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Nombre</th>
-                                                        <th>Estado</th>
+                                                <div class="panel-body">
+                                                    <table id="example" class="table table-striped table-bordered"
+                                                           cellspacing="0" width="100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Tipo de documeto</th>
+                                                            <th>Documento</th>
+                                                            <th>Nombre</th>
+                                                            <th>Apellido</th>
+                                                            <th>Telefono</th>
+                                                            <th>Usuario</th>
 
 
-                                                    </tr>
-                                                    </thead>
+                                                        </tr>
+                                                        </thead>
 
-                                                </table>
+                                                        <tbody>
+                                                        <?php
+                                                        $arrprofesor = classalumno::getAll();
+                                                        foreach ($arrprofesor as $profesor){
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo $profesor->getTipoDocumento(); ?></td>
+                                                                <td><?php echo $profesor->getDocumento(); ?></td>
+                                                                <td><?php echo $profesor->getNombre()?></td>
+                                                                <td><?php echo $profesor->getApellido()?></td>
+                                                                <td><?php echo $profesor->getTelefono()?></td>
+                                                                <td><?php echo $profesor->getUsuario()?></td>
 
+
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -342,11 +354,21 @@ if(isset($_SESSION['inicio'])){
     <!--sidebar right end-->
 </section>
 <!--Global JS-->
-<script src="../../assets/js/jquery-1.10.2.min.js"></script>
-<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../assets/plugins/waypoints/waypoints.min.js"></script>
-<script src="../../assets/js/application.js"></script>
-<script>
+
+    <script src="../../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/plugins/waypoints/waypoints.min.js"></script>
+    <script src="../../assets/js/application.js"></script>
+    <script src="../../assets/plugins/dataTables/js1/jquery.dataTables.js"></script>
+    <script src="../../assets/plugins/dataTables/js1/dataTables.bootstrap.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#example').dataTable();
+        });
+    </script>
+
+    <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -360,5 +382,6 @@ if(isset($_SESSION['inicio'])){
 </html>
 <?php  }
 else{
-    header('Location: ../index.php');
+    header('Location: ../404.html');
+
 } ?>

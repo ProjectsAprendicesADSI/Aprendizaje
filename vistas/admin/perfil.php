@@ -44,20 +44,20 @@ if(isset($_SESSION['inicio'])){
     $array =  $_SESSION["inicio"];
     $usu=$array['usu'];
     $profe=classprofesor::buscarforusuario($usu);
-    if (count($profe)>0 && ($usu !="admin")){
+    if (count($profe)>0 && ($usu =="admin")){
 
-        foreach ($profe as $valor){
-            $idprofesor=$valor->getidprofesor();
-            $Tipodocumento=$valor->getTipodocumento();
-            $Documento=$valor->getDocumento();
-            $Nombre=$valor->getNombre();
-            $Apellido=$valor->getApellido();
-            $Foto=$valor->getFoto();
-            $Telefono=$valor->getTelefono();
-            $Telefono2=$valor->getTelefono2();;
-            $Usuario;
-            $Pass=$valor->getPass();
-        }}
+    foreach ($profe as $valor){
+        $idprofesor=$valor->getidprofesor();
+        $Tipodocumento=$valor->getTipodocumento();
+        $Documento=$valor->getDocumento();
+        $Nombre=$valor->getNombre();
+        $Apellido=$valor->getApellido();
+        $Foto=$valor->getFoto();
+        $Telefono=$valor->getTelefono();
+        $Telefono2=$valor->getTelefono2();;
+        $Usuario;
+        $Pass=$valor->getPass();
+    }}
     else{
         header('Location: ../4042.html');
     }
@@ -110,20 +110,34 @@ if(isset($_SESSION['inicio'])){
                 <ul class="nano-content">
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>Trabajos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
+                            <li><a href="Materias.php">Asignaturas</a></li>
+                        </ul>
+                    </li>
 
-                            <li><a href="trabajo.php?u=<?php echo $Usuario ?>">Crear</a>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+
+
+                        <ul>
+                            <li><a href="aulas.php">Aulas</a
                             </li>
-                            <li><a href="calificar.php">calificar</a>
+                            <li><a href="Cursos.php">Cursos</a>
                             </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="crearalumno.php">Alumno</a></li>
+                            <li><a href="crearprofesor.php">Profesor</a></li>
                         </ul>
                     </li>
 
                 </ul>
             </div>
         </aside>
-
         <!------------------------ fin menu derecho-------------------->
 
 
@@ -137,24 +151,24 @@ if(isset($_SESSION['inicio'])){
                         <ul class="breadcrumb">
                             <li><a href="#">Administrador</a>
                             </li>
-                            <li class="active">profesor</li>
+                            <li class="active">Perfil</li>
 
                         </ul>
                         <!--breadcrumbs end -->
-                        <h1 class="h1">Profesor</h1>
+                        <h1 class="h1">Perfil</h1>
                     </div>
 
 
                     <div class="panel-body">
                         <div class="tab-wrapper tab-primary">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home1" data-toggle="tab" >Registrar</a>
+                                <li class="active"><a href="#home1" data-toggle="tab" >Perfil Administrador</a>
                                 </li>
 
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home1">
-                                    <form id="datos" class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action='../../controladores/controllerprofesores.php?action=editar&id=<?php echo $idprofesor ?>' novalidate>
+                                    <form id="datos" class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action='../../controladores/controllerprofesores.php?action=editar2&id=<?php echo $idprofesor ?>' novalidate>
                                         <?php if(!empty($_GET['respuesta'])){ ?>
                                             <?php if ($_GET['respuesta'] == "correcto"){ ?>
                                                 <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -187,22 +201,15 @@ if(isset($_SESSION['inicio'])){
                                         <!--__________________________________ NOmbre ------------------>
 
                                         <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">Nombres</label>
+                                            <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" name="Nombre" id="Nombre" readonly="readonly" value="<?php echo $Nombre; ?>">
+                                                <input type="hidden" name="Apellido" id="Apellido" value="<?php $Apellido?>">
 
                                             </div>
                                         </div>
 
-                                        <!--__________________________________ NOmbre ------------------>
 
-                                        <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">Apellidos</label>
-                                            <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="Apellidos" id="Apellidos" readonly="readonly" value="<?php echo $Apellido; ?>">
-
-                                            </div>
-                                        </div>
 
                                         <!--__________________________________ telefono ------------------>
 

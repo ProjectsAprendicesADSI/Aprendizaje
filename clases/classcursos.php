@@ -35,12 +35,12 @@ class classcursos extends db_abstract_class
         $htmlSelect .= "<option value='nada' >Seleccione...</option>";
         if (count($arrmaterias) > 0) {
             foreach ($arrmaterias as $materia) {
-                $htmlSelect .= "<option value='".$materia->getidcursos()."'>".$materia->getNombre()." "."</option>";
+                $htmlSelect .= "<option value='".$materia->getIdcursos(). "'>".$materia->getNombre()." "."</option>";
             }
             $htmlSelect .= "</select>";
         }
         else{
-            $htmlSelect="no hay metrias registradas por favor registre materias y vuelva a intentarlo";
+            $htmlSelect="no hay Cursos   registrados por favor registre cursos y vuelva a intentarlo";
         }
         return $htmlSelect;
 
@@ -58,11 +58,11 @@ class classcursos extends db_abstract_class
 
         foreach ($getrows as $valor) {
             $curso = new classcursos();
-            $curso->Idcursos = $valor['Idcursos'];
+            $curso->Idcursos = $valor['idcursos'];
             $curso->Nombre = $valor['Nombre'];
             $curso->Jornada = $valor['Jornada'];
-            $curso->Estado= $valor['Estado'];
             $curso->Aula = $valor['Aula'];
+            $curso->Estado= $valor['Estado'];
             array_push($arrcurso, $curso);
         }
         $tmp->Disconnect();
@@ -81,8 +81,8 @@ class classcursos extends db_abstract_class
         $this->insertRow("INSERT INTO cursos VALUES (NULL, ?, ?, ?, ?)", array(
                 $this->Nombre,
                 $this->Jornada,
-                $this->Estado,
                 $this->Aula,
+                $this->Estado,
             )
                     );
         $this->Disconnect();

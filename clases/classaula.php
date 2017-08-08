@@ -129,6 +129,9 @@ class classaula extends db_abstract_class
     {
         $this->idaula = $idaula;
     }
+    public function desactivar($id){
+
+    }
 
     /**
      * @return mixed

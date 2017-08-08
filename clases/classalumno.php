@@ -30,6 +30,7 @@ class classalumno extends db_abstract_class
                 $this->$campo = $valor;
             }
         }else {
+            $this->idestudiente="";
             $this->Tipodocumento= "";
             $this->Documento= "";
             $this->Nombre= "";
@@ -45,11 +46,22 @@ class classalumno extends db_abstract_class
 
         }
     }
+public  static function selectalumno($name,$id,$class){
 
+
+        $arralumno=classalumno::getAll();
+        $selecthtml ='<select name="'.$name.'" id="'.$id.'"class="'.$class.'">';
+        foreach ($arralumno as $valor){
+            $selecthtml.='<option value="'.$valor->getIdestudiente().'">'.$valor->getNombre().' '.$valor->getApellido(). '('.$valor->getDocumento().')</option>';
+        }
+        $selecthtml.='</select>';
+
+    return $selecthtml;
+}
 
     public static function buscarForId($id)
     {
-        // TODO: Implement buscarForId() method.
+            return classalumno::buscar('SELECT * FROM estudiente WHERE idestudiante= '.$id);
     }
 
     protected static function buscar($query)
@@ -60,7 +72,7 @@ class classalumno extends db_abstract_class
 
         foreach ($getrows as $valor) {
             $alumno = new classalumno();
-            $alumno->idestudiente = $valor['idalumno'];
+            $alumno->idestudiente = $valor['idestudiante'];
             $alumno->Tipodocumento = $valor['Tipodocumento'];
             $alumno->Documento = $valor['Documento'];
             $alumno->Nombre = $valor['Nombre'];
@@ -68,9 +80,9 @@ class classalumno extends db_abstract_class
             $alumno->Foto = $valor['Foto'];
             $alumno->Telefono = $valor['Telefono'];
             $alumno->Usuario = $valor['Usuario'];
-            $alumno->Pass = $valor['Contraseha'];
+            $alumno->Pass = $valor['Pass'];
             $alumno->Edad=$valor['Edad'];
-            $alumno->Curso=$valor['curso'];
+            $alumno->Curso=$valor['Curso'];
             array_push($arralumno, $alumno);
         }
         $tmp->Disconnect();
@@ -79,7 +91,7 @@ class classalumno extends db_abstract_class
 
     public static function getAll()
     {
-        // TODO: Implement getAll() method.
+        return classalumno::buscar('SELECT * FROM estudiente');
     }
     static public function validar($usu, $cont){
 
@@ -109,9 +121,23 @@ class classalumno extends db_abstract_class
         $this->Disconnect();
     }
 
-    protected function editar()
+    public function editar()
     {
-        // TODO: Implement editar() method.
+        //echo $this->idestudiente;
+        $this->updateRow("UPDATE estudiente SET Tipodocumento = ?, Documento = ?, Nombre = ?, Apellido = ?, Foto = ?, Telefono = ?, Usuario = ?, Pass = ?, Edad=?, Curso=? WHERE idestudiante = ?  ", array(
+            $this->Tipodocumento,
+            $this->Documento,
+            $this->Nombre,
+            $this->Apellido,
+            $this->Foto,
+            $this->Telefono,
+            $this->Usuario,
+            $this->Pass,
+            $this->Edad,
+            $this->Curso,
+            $this->idestudiente,
+        ));
+        $this->Disconnect();
     }
 
     protected function eliminar($id)

@@ -3,15 +3,15 @@ if(isset($_SESSION['inicio'])){
 
 
 ?>
-<?php require_once('../../clases/classprofesor.php') ?>
-<?php require_once('../../clases/classlogin.php') ?>
+<?php require('../../clases/classlogin.php') ?>
 <?php require('../../clases/classmaterias.php') ?>
-<?php require('../../clases/classprofesor.php') ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,11 +44,10 @@ if(isset($_SESSION['inicio'])){
 
     <?php
 
-    session_start();
     $array =  $_SESSION["inicio"];
     $usu=$array['usu'];
     $profe=classprofesor::buscarforusuario($usu);
-
+if (count($profe)>0 && ($usu =="admin")){
     foreach ($profe as $valor){
         $idprofesor=$valor->getidprofesor();
         $Tipodocumento=$valor->getTipodocumento();
@@ -60,7 +59,10 @@ if(isset($_SESSION['inicio'])){
         $Telefono2;
         $Usuario;
         $Pass;
-    }
+    }}
+else{
+    header('Location: ../4042.html');
+}
 
     ?>
     <section id="container">
@@ -81,7 +83,7 @@ if(isset($_SESSION['inicio'])){
                     <li class="dropdown messages">
                     </li>
                     <li class="profile-photo">
-                        <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                        <img src="<?php echo $Foto ?>" style="max-height: 50px ; max-width: 50px" alt="" class="img-circle">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -93,7 +95,7 @@ if(isset($_SESSION['inicio'])){
                             </li>
 
                             <li>
-                                <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                                <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
@@ -105,66 +107,58 @@ if(isset($_SESSION['inicio'])){
 
 
         <!------------------------ inicio menu derecho-------------------->
-    <aside class="sidebar">
-        <div id="leftside-navigation" class="nano">
-            <ul class="nano-content">
+        <aside class="sidebar">
+            <div id="leftside-navigation" class="nano">
+                <ul class="nano-content">
 
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="Materias.php">Asignaturas</a></li>
+                        </ul>
+                    </li>
 
-                        <li><a href="crearalumno.php">Alumno</a>
-                        </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
-                        </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
 
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-                        <li><a href="aulas.php">Aulas</a
-                        </li>
+                        <ul>
+                            <li><a href="aulas.php">Aulas</a
+                            </li>
+                            <li><a href="Cursos.php">Cursos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="crearalumno.php">Alumno</a></li>
+                            <li><a href="crearprofesor.php">Profesor</a></li>
+                        </ul>
+                    </li>
 
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
-                        </li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <!------------------------ fin menu derecho-------------------->
+                </ul>
+            </div>
+        </aside>
+        <!------------------------ fin menu derecho-------------------->
 
 
 
 
-    <!--main content start-->
+        <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
             <div class="row">
                 <div class="col-md-12">
                     <!--breadcrumbs start -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Persona</a>
+                        <li><a href="#">Administrador</a>
                         </li>
-                        <li class="active">Asignaturas</li>
+                        <li class="active">Asignar Materias</li>
 
                     </ul>
                     <!--breadcrumbs end -->
+                    <form id="datos" class="form-horizontal" role="form" method="post" action='../../controladores/controllermateriasprofe.php?action=crear' novalidate>
                     <h1 class="h1">Asiganar materias</h1>
                 </div>
                 </div>
@@ -172,26 +166,27 @@ if(isset($_SESSION['inicio'])){
                  <?php  echo classprofesor::ultimo(true ,"new-todo" ,"new-todo","form-control"); ?>
 
                         </div>
-
+            <?php if(!empty($_GET['respuesta'])){ ?>
+                <?php if ($_GET['respuesta'] == "null"){ ?>
+            <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong>Por favor </strong> seleccione minimo una materia.</div>
+                <?php }} ?>
 
                 <div class="form-group">
                             <label for="inputEmail2" class="col-sm-2 control-label">Lista materias</label>
 
                                 <div class="col-sm-5">
-                                    <?php  echo classmaterias::selectmaterias(true ,"new-todo" ,"new-todo","form-control"); ?>
-                                        <section id='main'>
-                                            <ul id='todo-list'>
-                                            </ul>
-                                        </section>
+
+                                    <?php  echo classmaterias::selectmaterias(true ,"numero[]" ,"numero[]","form-control"); ?>
+
 
                                     </div>
                                     </div>
-            <div class="form-group">
-                <button id="todo-enter" class="btn btn-info" >agregar</button>
+<br>
+<br>
+<br>
 
-                <div id='todo-count'></div>
 
-            </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">enviar</button>
@@ -199,6 +194,7 @@ if(isset($_SESSION['inicio'])){
                 </div>
             </div>
 
+        </form>
         </section>
     </section>
     <!--main content end-->
@@ -217,20 +213,35 @@ if(isset($_SESSION['inicio'])){
 <script src="../../assets/plugins/todo/js/todos.js"></script>
 
 
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        $(document).ready(function () {
+            $('#example').dataTable();
+        });
+    </script>
 
-    ga('create', 'UA-46627904-1', 'authenticgoods.co');
-    ga('send', 'pageview');
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-</script>
+        ga('create', 'UA-46627904-1', 'authenticgoods.co');
+        ga('send', 'pageview');
+
+    </script>
+
 
 </body>
 </html>
 <?php  }
 else{
-    header('Location: ../index.php');
+    header('Location: ../404.html');
+
 } ?>

@@ -43,10 +43,10 @@ if(isset($_SESSION['inicio'])){
 
     <?php
 
-    session_start();
     $array =  $_SESSION["inicio"];
     $usu=$array['usu'];
     $profe=classprofesor::buscarforusuario($usu);
+    if (count($profe)>0 && ($usu =="admin")){
 
     foreach ($profe as $valor){
         $idprofesor=$valor->getidprofesor();
@@ -59,7 +59,10 @@ if(isset($_SESSION['inicio'])){
         $Telefono2;
         $Usuario;
         $Pass;
-    }
+    }}
+else{
+    header('Location: ../4042.html');
+}
 
     ?>
     <section id="container">
@@ -80,7 +83,7 @@ if(isset($_SESSION['inicio'])){
                     <li class="dropdown messages">
                     </li>
                     <li class="profile-photo">
-                        <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                        <img src="<?php echo $Foto ?>" style="max-height: 50px ; max-width: 50px" alt="" class="img-circle">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -92,7 +95,7 @@ if(isset($_SESSION['inicio'])){
                             </li>
 
                             <li>
-                                <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                                <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
@@ -101,70 +104,57 @@ if(isset($_SESSION['inicio'])){
             </div>
         </header>
 
-
-
-
         <!------------------------ inicio menu derecho-------------------->
-    <aside class="sidebar">
-        <div id="leftside-navigation" class="nano">
-            <ul class="nano-content">
+        <aside class="sidebar">
+            <div id="leftside-navigation" class="nano">
+                <ul class="nano-content">
 
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="Materias.php">Asignaturas</a></li>
+                        </ul>
+                    </li>
 
-                        <li><a href="crearalumno.php">Alumno</a>
-                        </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-                        <li><a href="aulas.php">Aulas</a
-                        </li>
-
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-bookmark"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
-                        </li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <!------------------------ fin menu derecho-------------------->
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
 
+                        <ul>
+                            <li><a href="aulas.php">Aulas</a
+                            </li>
+                            <li><a href="Cursos.php">Cursos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+                            <li><a href="crearalumno.php">Alumno</a></li>
+                            <li><a href="crearprofesor.php">Profesor</a></li>
+                        </ul>
+                    </li>
 
-    <!--main content start-->
+                </ul>
+            </div>
+        </aside>
+        <!------------------------ fin menu derecho-------------------->
+
+
+        <!--main content start-->
     <section class="main-content-wrapper">
         <section id="main-content">
             <div class="row">
                 <div class="col-md-12">
                     <!--breadcrumbs start -->
                     <ul class="breadcrumb">
-                        <li><a href="#">Materias</a>
+                        <li><a href="#">Administrador</a>
                         </li>
-                        <li class="active">materias</li>
+                        <li class="active">Asignaturas</li>
 
                     </ul>
                     <!--breadcrumbs end -->
-                    <h1 class="h1">Materias</h1>
+                    <h1 class="h1">Asignaturas</h1>
                 </div>
 
 
@@ -228,7 +218,7 @@ if(isset($_SESSION['inicio'])){
                                         <div class="col-md-15">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Acudientes</h3>
+                                                    <h3 class="panel-title">Materias</h3>
 
                                                 </div>
                                                 <div class="panel-body">
@@ -237,7 +227,7 @@ if(isset($_SESSION['inicio'])){
                                                         <tr>
                                                             <th>Nombre</th>
                                                             <th>Estado</th>
-                                                            <th>Acciones</th>
+
 
                                                         </tr>
                                                         </thead>
@@ -310,5 +300,6 @@ if(isset($_SESSION['inicio'])){
 </html>
 <?php  }
 else{
-    header('Location: ../index.php');
+    header('Location: ../404.html');
+
 } ?>

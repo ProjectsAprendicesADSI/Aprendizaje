@@ -4,6 +4,7 @@ if(isset($_SESSION['inicio'])){
 
 ?>
 <?php require_once('../../clases/classalumno.php') ?>
+<?php require_once('../../clases/classtrabajocrear.php') ?>
 <?php require_once('../../clases/classlogin.php') ?>
 
 <!DOCTYPE html>
@@ -42,10 +43,10 @@ if(isset($_SESSION['inicio'])){
 <body>
 <?php
 
-session_start();
 $array =  $_SESSION["inicio"];
 $usu=$array['usu'];
 $profe=classalumno::buscarforusuario($usu);
+if (count($profe)>0 && ($usu !="admin")){
 
 foreach ($profe as $valor){
     $Tipodocumento= $valor->getTipodocumento();
@@ -58,6 +59,9 @@ foreach ($profe as $valor){
     $Pass= $valor->getPass();
     $Edad=$valor->getEdad();
     $Curso=$valor->getCurso();
+}}
+else{
+    header('Location: ../4042.html');
 }
 
 ?>
@@ -65,7 +69,7 @@ foreach ($profe as $valor){
     <header id="header">
         <!--logo start-->
         <div class="brand">
-            <a href="../inicio.html" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
+            <a href="inicio.php" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
         </div>
         <!--logo end-->
         <div class="toggle-navigation toggle-left">
@@ -77,7 +81,7 @@ foreach ($profe as $valor){
             <ul>
 
                 <li class="profile-photo">
-                    <img src="<?php echo $Foto ?>" alt="" class="img-circle">
+                    <img src="<?php echo $Foto ?>" alt="" class="img-circle" style="max-height: 50px ; max-width: 50px">
                 </li>
                 <li class="dropdown settings">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -85,12 +89,12 @@ foreach ($profe as $valor){
                     </a>
                     <ul class="dropdown-menu animated fadeInDown">
                         <li>
-                            <a href="#  "><i class="fa fa-user"></i> perfil</a>
+                            <a href="perfil.php"><i class="fa fa-user"></i> perfil</a>
                         </li>
 
 
                         <li>
-                            <a href="../index.php"><i class="fa fa-power-off"></i> cerrar sesion</a>
+                            <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                         </li>
                     </ul>
                 </li>
@@ -108,39 +112,29 @@ foreach ($profe as $valor){
             <ul class="nano-content">
 
                 <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-user"></i><span>usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="javascript:void(0);"><i class="fa fa-archive"></i><span>Trabajos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
 
-                        <li><a href="crearalumno.php">Alumno</a>
+                        <li><a href=vernotas.php>Ver Notas</a>
                         </li>
-                        <li><a href="crearprofesor.php">Profesor</a>
-                        </li>
-                        <li><a href="crearacudiente.php">Acudiente</a>
+                        <li><a href=subir.php>Subir</a>
                         </li>
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Cursos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i><span>observaciones</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
 
-                        <li><a href="Cursos.php" >Cursos</a>
-                        </li>
-
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:void(0);"><i class="fa fa-users"></i><span>Asignaturas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                    <ul>
-
-                        <li><a href="Materias.php">Asignaturas</a>
+                        <li><a href=verobservaciones.php>Ver Observaciones</a>
                         </li>
 
                     </ul>
                 </li>
+
             </ul>
         </div>
     </aside>
+
 
     <!------------------------ fin menu derecho-------------------->
 
@@ -160,8 +154,17 @@ foreach ($profe as $valor){
                     <!--breadcrumbs end -->
                     <h1 class="h1">Registrar Alumno</h1>
                 </div>
+                </div>
                 <div class="panel-body">
-                    <label></label>
+                    <?php if(!empty($_GET['respuesta'])){ ?>
+                        <?php if (base64_decode($_GET['respuesta']) == "exito"){ ?>
+                            <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>EL trabajo </strong> se enviado con exito.</div>
+                        <?php }else {?>
+                            <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>El trabajo </strong> no se pudo enviar por favor intente de nuevo.</div>
+                        <?php } ?>
+                    <?php } ?>
 
 
                 </div>
@@ -193,5 +196,6 @@ foreach ($profe as $valor){
 </html>
 <?php  }
 else{
-    header('Location: ../index.php');
+    header('Location: ../404.html');
+
 } ?>

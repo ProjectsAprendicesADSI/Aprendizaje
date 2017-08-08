@@ -1,4 +1,8 @@
+<?php session_start();
+if(!isset($_SESSION['inicio'])){
 
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -50,7 +54,7 @@
                     </div>
                     <div class="panel-body">
                        <p>Ingrese los datos para acceder a su cuenta</p>
-                        <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php?action=inicio" method="post">
+                        <form class="form-horizontal" role="form" action="../controladores/controllerlogin.php?accion=inicio" method="post">
                             <div class="form-group">
                                 <?php if(!empty($_GET['respuesta'])){ ?>
                                     <?php if ($_GET['respuesta'] == "error"){ ?>
@@ -65,20 +69,18 @@
                                             <input class="icheck" type="radio" checked="" value="profesor" name="tipo">Profesor</label>
                                         <label class="radio-inline">
                                             <input class="icheck" type="radio" value="estudiante" name="tipo">Estudiante</label>
-                                        <label class="radio-inline">
-                                            <input class="icheck" type="radio" value="acudiente" name="tipo">acudiente</label>
                                     </div>
                                 </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <i class="fa fa-user"></i>
-                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="usuario">
 
                                 </div>
                             </div>
                             <div class="form-group">
                                <div class="col-md-12">
-                                    <input type="password" class="form-control" id="pass" name="pass" placeholder="contraseña">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
                                     <i class="fa fa-lock"></i>
                                 </div>
                             </div>
@@ -86,7 +88,6 @@
                                <div class="col-md-12">
                                     <input type="submit" class="btn btn-primary btn-block" value="ingresar">
                                     <hr />
-                                    <a href="pages-sign-up.html" class="btn btn-default btn-block">olvidaste tu contraseña</a>
                                 </div>
                             </div>
                         </form>
@@ -115,3 +116,8 @@
 </body>
 
 </html>
+<?php  }
+else{
+    header("location:history.back()");
+
+} ?>

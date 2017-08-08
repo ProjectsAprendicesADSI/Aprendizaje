@@ -23,17 +23,33 @@ class classmaterias extends db_abstract_class
             $this->Estado = "";
         }
     }
+    static public function selectmaterias2 ($isRequired=true, $id, $nombre, $class)
+    {
+        $arrmaterias = classmaterias::getAll(); /*  */
+        $htmlSelect = "";
+        if (count($arrmaterias) > 0) {
+            $htmlSelect.='<select name="'.$nombre.'" id="'.$id.'" class="'.$class.'">';
+            foreach ($arrmaterias as $materia) {
 
+                 $htmlSelect.='<option value="'.$materia->getIdAsignatura().'">'.$materia->getNombre().'</option>';
+            }
+                $htmlSelect.="</select>";
+        }
+        else{
+            $htmlSelect="no hay metrias registradas por favor registre materias y vuelva a intentarlo";
+        }
+        return $htmlSelect;
+
+    }
     static public function selectmaterias ($isRequired=true, $id, $nombre, $class)
     {
         $arrmaterias = classmaterias::getAll(); /*  */
-        $htmlSelect = '<select ' . (($isRequired) ? "required" : "") . " id= '" . $id . "' name='" . $nombre . "' class='" . $class . "'>";
-        $htmlSelect .= "<option value='nada' >Seleccione...</option>";
+        $htmlSelect = "";
         if (count($arrmaterias) > 0) {
             foreach ($arrmaterias as $materia) {
-                $htmlSelect .= "<option value='".$materia->getNombre()."'>".$materia->getNombre()." "."</option>";
+               $htmlSelect.='<input type="checkbox" name="'.$nombre.'" id="'.$id.'" class="" value="'.$materia->getIdAsignatura().'">'.$materia->getNombre().'<br>';
             }
-            $htmlSelect .= "</select>";
+
         }
 else{
             $htmlSelect="no hay metrias registradas por favor registre materias y vuelva a intentarlo";
@@ -46,13 +62,13 @@ else{
 
     }
 
-    protected static function buscarForId($id)
+    public static function buscarForId($id)
     {
         $materias = new classmaterias();
         if ($id > 0){
-            $getrow =$materias->getRow("SELECT * FROM asignarutras WHERE idAsigaturas =?", array($id));
+            $getrow =$materias->getRow("SELECT * FROM asigaturas WHERE idAsigaturas =?", array($id));
             $materias->idAsignatura = $getrow['idAsigaturas'];
-            $materias->Nombre = $getrow['nombre'];
+            $materias->Nombre = $getrow['Nombre'];
             $materias->Estado = $getrow['Estado'];
 
             $materias->Disconnect();

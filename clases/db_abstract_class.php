@@ -82,9 +82,23 @@ abstract class db_abstract_class {
 
     //updating existing row
     //$updaterow = $database->updateRow("UPDATE users SET username = ?, email = ? WHERE id = ?", array("yusafk", "yusafk@email.com", "1"));
-    public function updateRow($query, $params){
-        return $this->insertRow($query, $params);
+    public function updateRow2($query ){
+        try{
+        $stmt=$this->datab->prepare($query);
+        $stmt->execute();
+
+        }
+        catch (Exception $e){
+            echo $e->getMessage();
+        }
+        }
+
+        public function updateRow($query, $params){
+            return $this->insertRow($query, $params);
+
     }
+
+
 
     //delete a row
     //$deleterow = $database->deleteRow("DELETE FROM users WHERE id = ?", array("1"));

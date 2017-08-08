@@ -36,16 +36,49 @@ class controlleralumno
             $arrayalumno['Apellido'] = $_POST['Apellido'];
             $arrayalumno['Telefono'] = $_POST['Telefono'];
             $arrayalumno['Usuario']  =$_POST['Usuario'];
-            $arrayalumno['Pass'] = $_POST['Pass'];
+            $arrayalumno['Foto']="../../usuarios/fotos/usuer.jpg";
+            $arrayalumno['Pass'] = $_POST['Documento'];
             $arrayalumno['Edad'] = $_POST['Edad'];
             $arrayalumno['Curso'] = $_POST['Curso'];
             $profesor = new classalumno($arrayalumno);
+
           $profesor->insertar();
           header('Location: ../vistas/admin/crearalumno.php?respuesta=correcto' );
         } catch (Exception $e) {
             echo $e->getMessage();
-            //header("Location: ../vistas/admin/crearalumno.php?respuesta=error");
+          header("Location: ../vistas/admin/crearalumno.php?respuesta=error");
 
+        }
+    }
+    static public function editar    (){
+        try {
+            $documento=$_POST['Documento'];
+            $new=$_FILES['Foto']['name'];
+            $directorio='../../usuarios/fotos/';
+            $newnew = $directorio.$documento.$new;
+            move_uploaded_file($_FILES['Foto']['tmp_name'], "../usuarios/fotos/".$documento.$new);
+            $id= ($_GET['id']);
+
+            $arrayprofesor = array();
+
+            $arrayprofesor['Tipodocumento'] = $_POST['Tipodocumento'];
+            $arrayprofesor['Documento'] = $_POST['Documento'];
+            $arrayprofesor['Nombre'] = $_POST['Nombre'];
+            $arrayprofesor['Apellido'] = $_POST['Apellido'];
+            $arrayprofesor['Foto'] =$newnew;
+            $arrayprofesor['Telefono'] = $_POST['Telefono'];
+            $arrayprofesor['Usuario']  =$_POST['Usuario'];
+            $arrayprofesor['Pass'] =$_POST['pass1'];
+            $arrayprofesor['Edad'] =$_POST['Edad'];
+            $arrayprofesor['Curso'] =$_POST['Curso'];
+            $arrayprofesor['idestudiente']=$id;
+            var_dump($id);
+            $profesor = new classalumno($arrayprofesor);
+            $profesor->editar();
+            header('Location: ../vistas/estudiente/inicio.php' );
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            //header("Location: ../vistas/admin/crearprofesor.php?respuesta=error");
         }
     }
 

@@ -3,9 +3,11 @@ if(isset($_SESSION['inicio'])){
 
 
     ?>
-    <?php require_once('../../clases/classprofesor.php') ?>
+    <?php require_once('../../clases/classalumno.php') ?>
     <?php require_once('../../clases/classlogin.php') ?>
+
     <!DOCTYPE html>
+
     <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
     <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
     <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -38,25 +40,25 @@ if(isset($_SESSION['inicio'])){
         <![endif]-->
     </head>
     <body>
-
     <?php
 
     $array =  $_SESSION["inicio"];
     $usu=$array['usu'];
-    $profe=classprofesor::buscarforusuario($usu);
+    $profe=classalumno::buscarforusuario($usu);
     if (count($profe)>0 && ($usu !="admin")){
 
         foreach ($profe as $valor){
-            $idprofesor=$valor->getidprofesor();
-            $Tipodocumento=$valor->getTipodocumento();
-            $Documento=$valor->getDocumento();
-            $Nombre=$valor->getNombre();
-            $Apellido=$valor->getApellido();
-            $Foto=$valor->getFoto();
-            $Telefono=$valor->getTelefono();
-            $Telefono2=$valor->getTelefono2();;
-            $Usuario;
-            $Pass=$valor->getPass();
+            $idalumno=$valor->getIdestudiente();
+            $Tipodocumento= $valor->getTipodocumento();
+            $Documento= $valor->getDocumento();
+            $Nombre= $valor->getNombre();
+            $Apellido= $valor->getApellido();
+            $Foto= $valor->getFoto();
+            $Telefono= $valor->getTelefono();
+            $Usuario= $valor->getUsuario();
+            $Pass= $valor->getPass();
+            $Edad=$valor->getEdad();
+            $Curso=$valor->getCurso();
         }}
     else{
         header('Location: ../4042.html');
@@ -67,7 +69,7 @@ if(isset($_SESSION['inicio'])){
         <header id="header">
             <!--logo start-->
             <div class="brand">
-                <a href="inicioadmi.php" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
+                <a href="inicio.php" class="logo" title="Inicio" data-toggle="tooltip"  ><span>GIGA</span></a>
             </div>
             <!--logo end-->
             <div class="toggle-navigation toggle-left">
@@ -75,13 +77,11 @@ if(isset($_SESSION['inicio'])){
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
-
             <div class="user-nav">
                 <ul>
-                    <li class="dropdown messages">
-                    </li>
+
                     <li class="profile-photo">
-                        <img src="<?php echo $Foto ?>" style="max-height: 50px ; max-width: 50px" alt="" class="img-circle">
+                        <img src="<?php echo $Foto ?>" alt="" class="img-circle" style="max-height: 50px ; max-width: 50px">
                     </li>
                     <li class="dropdown settings">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -92,11 +92,13 @@ if(isset($_SESSION['inicio'])){
                                 <a href="perfil.php"><i class="fa fa-user"></i> perfil</a>
                             </li>
 
+
                             <li>
                                 <a href="../../controladores/controllerlogin.php?accion=fin"><i class="fa fa-power-off"></i> cerrar sesion</a>
                             </li>
                         </ul>
                     </li>
+
 
                 </ul>
             </div>
@@ -110,13 +112,22 @@ if(isset($_SESSION['inicio'])){
                 <ul class="nano-content">
 
                     <li class="sub-menu">
-                        <a href="javascript:void(0);"><i class="fa fa-book"></i><span>Trabajos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-archive"></i><span>Trabajos</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                         <ul>
 
-                            <li><a href="trabajo.php?u=<?php echo $Usuario ?>">Crear</a>
+                            <li><a href=vernotas.php>Ver Notas</a>
                             </li>
-                            <li><a href="calificar.php">calificar</a>
+                            <li><a href=subir.php>Subir</a>
                             </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i><span>observaciones</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                        <ul>
+
+                            <li><a href=verobservaciones.php>Ver Observaciones</a>
+                            </li>
+
                         </ul>
                     </li>
 
@@ -124,24 +135,25 @@ if(isset($_SESSION['inicio'])){
             </div>
         </aside>
 
+
         <!------------------------ fin menu derecho-------------------->
 
 
-
         <!--main content start-->
+
         <section class="main-content-wrapper">
             <section id="main-content">
                 <div class="row">
                     <div class="col-md-12">
                         <!--breadcrumbs start -->
                         <ul class="breadcrumb">
-                            <li><a href="#">Administrador</a>
+                            <li><a href="#">Alumno</a>
                             </li>
-                            <li class="active">profesor</li>
+                            <li class="active">Perfil</li>
 
                         </ul>
                         <!--breadcrumbs end -->
-                        <h1 class="h1">Profesor</h1>
+                        <h1 class="h1">Perfil</h1>
                     </div>
 
 
@@ -150,11 +162,11 @@ if(isset($_SESSION['inicio'])){
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home1" data-toggle="tab" >Registrar</a>
                                 </li>
-
                             </ul>
+
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home1">
-                                    <form id="datos" class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action='../../controladores/controllerprofesores.php?action=editar&id=<?php echo $idprofesor ?>' novalidate>
+                                    <form id="datos" class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action='../../controladores/controlleralumno.php?action=editar&id=<?php echo $idalumno ?>' novalidate>
                                         <?php if(!empty($_GET['respuesta'])){ ?>
                                             <?php if ($_GET['respuesta'] == "correcto"){ ?>
                                                 <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -165,14 +177,12 @@ if(isset($_SESSION['inicio'])){
                                             <?php } ?>
                                         <?php } ?>
 
-
                                         <!--__________________________________ Tipo de documento ------------------>
 
                                         <div class="form-group" >
                                             <label for="inputEmail2" class="col-sm-2 control-label">Tipo de documeto</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" name="Tipodocumento" id="Tipodocumento" readonly="readonly" value="<?php echo $Tipodocumento; ?>">
-
                                             </div>
                                         </div>
 
@@ -184,23 +194,22 @@ if(isset($_SESSION['inicio'])){
                                                 <input type="number" class="form-control" name="Documento" id="Documento" readonly="readonly" value="<?php echo $Documento; ?>">
                                             </div>
                                         </div>
+
                                         <!--__________________________________ NOmbre ------------------>
 
                                         <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">Nombres</label>
+                                            <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" name="Nombre" id="Nombre" readonly="readonly" value="<?php echo $Nombre; ?>">
-
                                             </div>
                                         </div>
 
-                                        <!--__________________________________ NOmbre ------------------>
+                                        <!--__________________________________ Apellido ------------------>
 
                                         <div class="form-group">
-                                            <label for="inputEmail2" class="col-sm-2 control-label">Apellidos</label>
+                                            <label for="inputEmail2" class="col-sm-2 control-label">Nombre</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="Apellidos" id="Apellidos" readonly="readonly" value="<?php echo $Apellido; ?>">
-
+                                                <input type="text" class="form-control" name="Apellido" id="Apellido" readonly="readonly" value="<?php echo $Apellido; ?>">
                                             </div>
                                         </div>
 
@@ -212,12 +221,6 @@ if(isset($_SESSION['inicio'])){
                                                 <input type="number" class="form-control" name="Telefono" id="Telefono" required="true  " value="<?php echo $Telefono; ?>">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-2 control-label">Telefono2</label>
-                                            <div class="col-sm-6">
-                                                <input type="number" class="form-control" name="Telefono2" id="Telefono2" required="" <?php echo $Telefono2; ?>>
-                                            </div>
-                                        </div>
 
                                         <!-------------------------------foto---------------------------------------->
 
@@ -227,13 +230,13 @@ if(isset($_SESSION['inicio'])){
                                                 <input type="file" accept="image/jpeg, image/png " class="form-control" name="Foto" id="Foto" required="" >
                                             </div>
                                         </div>
+
                                         <!--__________________________________ usuario ------------------>
 
                                         <div class="form-group">
                                             <label for="inputPassword3" class="col-sm-2 control-label">Usuario</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" name="Usuario" id="Usuario" readonly="readonly" value="<?php echo $usu; ?>">
-
                                             </div>
                                         </div>
 
@@ -242,39 +245,39 @@ if(isset($_SESSION['inicio'])){
                                         <div class="form-group">
                                             <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
                                             <div class="col-sm-6">
-
                                                 <input type="password" class="form-control" name="pass1" id="pass1" required="" value="<?php echo $Pass; ?>" >
                                             </div>
                                         </div>
 
+                                        <!--__________________________________ pass ------------------>
 
+                                        <div hidden class="form-group">
+                                            <div class="col-sm-6">
+                                                <input  type="text" class="form-control" name="Edad" id="Edad" required="" value="<?php echo $Edad; ?>" >
+                                            </div>
+                                        </div>
+                                        <div hidden class="form-group">
+                                            <div class="col-sm-6">
+                                                <input  type="text" class="form-control" name="Curso" id="Curso" required="" value="<?php echo $Curso; ?>" >
+                                            </div>
+                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="btn btn-primary" >enviar</button>
-
                                             </div>
                                         </div>
 
-
                                     </form>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
                 </div>
-
             </section>
         </section>
+
 
         <!--main content end-->
         <!--sidebar right start-->
@@ -286,79 +289,6 @@ if(isset($_SESSION['inicio'])){
     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../assets/plugins/waypoints/waypoints.min.js"></script>
     <script src="../../assets/js/application.js"></script>
-
-    <script src="../../assets/plugins/icheck/js/icheck.min.js"></script>
-    <script src="../../assets/plugins/validation/jquery.validate.min.js"></script>
-    <script src="../../assets/plugins/validation/jquery.validate.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#form').validate({
-                rules: {
-                    input1: {
-                        required: true
-                    },
-                    input2: {
-                        minlength: 5,
-                        required: true
-                    },
-                    input3: {
-                        maxlength: 5,
-                        required: true
-                    },
-                    input4: {
-                        required: true,
-                        minlength: 4,
-                        maxlength: 8
-                    },
-                    input5: {
-                        required: true,
-                        min: 5
-                    },
-                    input6: {
-                        required: true,
-                        range: [5, 50]
-                    },
-                    pass1: {
-                        minlength: 5
-                    },
-                    pass2: {
-                        required: true,
-                        minlength: 5,
-                        equalTo: "#pass1"
-                    },
-                    input9: {
-                        required: true,
-                        email: true
-                    },
-                    input10: {
-                        required: true,
-                        url: true
-                    },
-                    input11: {
-                        required: true,
-                        digits: true
-                    },
-                    input12: {
-                        required: true,
-                        phoneUS: true
-                    },
-                    input13: {
-                        required: true,
-                        minlength: 5
-                    }
-                },
-                highlight: function(element) {
-                    $(element).closest('.form-group').removeClass('success').addClass('error');
-                },
-                success: function(element) {
-                    element.text('OK!').addClass('valid')
-                        .closest('.form-group').removeClass('error').addClass('success');
-                }
-            });
-
-
-        });
-    </script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
