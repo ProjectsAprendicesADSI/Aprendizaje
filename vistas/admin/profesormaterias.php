@@ -159,7 +159,7 @@ else{
                     </ul>
                     <!--breadcrumbs end -->
                     <form id="datos" class="form-horizontal" role="form" method="post" action='../../controladores/controllermateriasprofe.php?action=crear' novalidate>
-                    <h1 class="h1">Asiganar materias</h1>
+                    <h1 class="h1">Asignar materias</h1>
                 </div>
                 </div>
                     <div>
